@@ -1,0 +1,145 @@
+<body>
+	<style>
+	   /* *{box-sizing:border-box;padding:0;margin:0} */
+	   .ksa-call-cov{font-family:'Nanum Gothic','나눔고딕',sans-serif !important;width:1200px;margin:0 auto;padding:0 0 30px 0}
+	   .ksa-call-cov *{box-sizing:border-box;padding:0;margin:0}
+	   .ksa-call-cov table{width:100%;border-collapse:collapse}
+	   .ksa-call-cov .d-title{display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:bold;margin-top:30px}
+	   .ksa-call-cov .d-title .left{color:#333}
+	   .ksa-call-cov .d-title .left strong{color:#048ee5}
+	   .ksa-call-cov .d-title .dept-title{color:#048ee5}
+	   .ksa-call-cov .d-title .left img{vertical-align:-5px}
+	   .ksa-call-cov .d-title .right{color:#666}
+	   .ksa-call-cov .d-title .move-link {cursor: pointer;}
+	   .ksa-call-cov .d-title+.d-box{margin-top:10px}
+	   .ksa-call-cov .d-box{display:flex;background-color:#e9edf2;border:1px solid #dfe5ec;border-radius:3px;padding:15px}
+	   .ksa-call-cov .d-box .inner-box{flex:1;padding:18px 0 0 0;background-color:#fff; position: relative;}
+	   .ksa-call-cov .d-box .inner-box.bar-box {flex: inherit; width: 240px;}
+	   .ksa-call-cov .d-box .inner-box+.inner-box{margin-left:16px}
+	   .ksa-call-cov .d-box .inner-box .sub-title{position:absolute;right:17px;top:22px;font-weight:600;color:blue;}
+	   .ksa-call-cov .d-box .inner-box .fa-angle-right{color:#048ee5;margin:0 10px 0 16px;}
+	   .ksa-call-cov .d-box .inner-box .detail-txt{color:#048ee5;font-weight:bold;font-size:16px;}
+	   .ksa-call-cov .d-box .chart-title{font-size:16px;line-height:1;color:#048ee5;font-weight:bold;padding-left:16px;margin-left: 16px;border-left:2px solid #048ee5}
+	   .ksa-call-cov .d-box .chart-title span{font-size:16px;color:#777;font-weight:bold}
+	   .ksa-call-cov .d-box .chart-area{height:370px;padding:0px 5px 0px 5px;}
+	   
+	   .ksa-call-cov .d-box .chart-area.area-fit{height:auto}
+	   .ksa-call-cov .d-box .chart-area.area-call{height:343px;}
+	   .ksa-call-cov .d-box .chart-area.area-sub{height: 390px;}
+	   .ksa-call-cov .d-box .chart-area.area-sub-auto{height: 390px; float: left;}
+	   .ksa-call-cov .d-box .table-area{padding:0 25px 15px 25px}
+	   .ksa-call-cov .d-box .table-area.area-sub{width: 60px; height: 375px; float: left; margin-left: 8px; padding: 0;}
+	   .ksa-call-cov .d-box .table-area .table-title{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#999}
+	   .ksa-call-cov .d-box .table-area table{margin-top:7px}
+	   .ksa-call-cov .d-box .table-area table th,.ksa-call-cov .d-box .table-area table td{height:24px;font-size:13px;color:#333;text-align:center;font-weight:bold;padding: 5px 0;}
+	   .ksa-call-cov .d-box .table-area table th{background-color:#f2f2f2}
+	   .ksa-call-cov .d-box .table-area .font-focus{color: red;}
+	   .ksa-call-cov .d-box .table-area .table-line{border:1px solid #cacece;}
+	   .ksa-call-cov .d-box .table-bar-chart{height:340px;padding:20px 18px}
+	   .ksa-call-cov .d-box .table-bar-chart thead th{height:24px;font-size:11px;color:#999}
+	   .ksa-call-cov .d-box .table-bar-chart tbody tr:nth-child(odd){background-color:#f9f9f9}
+	   .ksa-call-cov .d-box .table-bar-chart tbody th{height:34px;font-size:11px;color:#999;background-color:#fff}
+	   .ksa-call-cov .d-box .table-bar-chart tbody td{position:relative;border-top:1px solid #ececec;border-bottom:1px solid #ececec;text-align:center;font-size:11px;color:#666;line-height: 18px;}
+	   .ksa-call-cov .d-box .table-bar-chart .bar-group{position:absolute;top:0;left:0;right:0;bottom:0}
+	   .ksa-call-cov .d-box .table-bar-chart .bar-group .backs{width:100%;height:100%;display:flex}
+	   .ksa-call-cov .d-box .table-bar-chart .bar-group .backs span{flex:1;border-left:1px solid #ececec}
+	   .ksa-call-cov .d-box .table-bar-chart .bar-group .backs span:nth-child(odd){background-color:rgba(245,245,245,0.5)}
+	   .ksa-call-cov .d-box .table-bar-chart .bar-group .backs span:last-child{border-right:1px solid #ececec}
+	   .ksa-call-cov .d-box .table-bar-chart .bar-group .bar{position:absolute;top:7px;left:0;height:17px;background-color:#58b0ec;font-size:11px;color:#fff;text-align:center;padding-top:2px}
+	   .ksa-call-cov .mt5{margin-top:5px;}
+	   .ksa-call-cov .mt10{margin-top:10px;}
+	   .ksa-call-cov .mt15{margin-top:15px;}
+	   .ksa-call-cov .mt20{margin-top:20px;}
+	   .ksa-call-cov .mt30{margin-top:30px;}
+	   .ksa-call-cov .mb10{margin-bottom:10px;}
+	</style>
+	
+	<div class="ksa-call-cov">
+		<!-- 영업소 Call Activity -->
+		<div id="teamKSABox">
+			<div class="d-title mt10">
+			    <span class="left"><strong>영업소 Call Activity</strong> 현황(MR1인 평균)</span>
+			    <span class="right">반기누적</span>
+			</div>
+			<div class="d-box">
+				<div class="inner-box">
+			        <div>
+			        	<div id="ksaTeamAllCallActivity" class="mt15 chart-area area-sub"></div>
+			        </div>
+			    </div>
+			    <div class="inner-box bar-box">
+			        <p class="chart-title">Detail Call</p>
+			        <div>
+			        	<div id="ksaTeamDetailCallActivity" class="mt15 chart-area area-sub"></div>
+			        </div>
+			    </div>
+			    <div class="inner-box bar-box">
+			        <p class="chart-title">자사제품설명회 Call</p>
+			        <div>
+			        	<div id="ksaTeamJasaProductCallActivity" class="mt15 chart-area area-sub"></div>
+			        </div>
+			    </div>
+			    <div class="inner-box bar-box">
+			        <p class="chart-title">심포지엄 Call</p>
+			        <div>
+			        	<div id="ksaTeamSympCallActivity" class="mt15 chart-area area-sub"></div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+		<!-- 영업부 Call Activity -->
+		<div>
+			<div class="d-title mt20">
+			    <span class="left"><strong>영업부 Call Activity</strong> 현황(MR1인 평균)</span>
+			    <span class="right">반기누적</span>
+			</div>
+			<div class="d-box">
+				<div class="inner-box">
+			        <div>
+			        	<div id="ksaDeptAllCallActivity" class="mt15 chart-area area-sub"></div>
+			        </div>
+			    </div>
+			    <div class="inner-box bar-box">
+			        <p class="chart-title">Detail Call</p>
+			        <div>
+			        	<div id="ksaDeptDetailCallActivity" class="mt15 chart-area area-sub"></div>
+			        </div>
+			    </div>
+			    <div class="inner-box bar-box">
+			        <p class="chart-title">자사제품설명회 Call</p>
+			        <div>
+			        	<div id="ksaDeptJasaProductCallActivity" class="mt15 chart-area area-sub"></div>
+			        </div>
+			    </div>
+			    <div class="inner-box bar-box">
+			        <p class="chart-title">심포지엄 Call</p>
+			        <div>
+			        	<div id="ksaDeptSympCallActivity" class="mt15 chart-area area-sub"></div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+		<!-- MR별 Call Activity -->
+		<div class="d-title mt20 mb10">
+		    <span class="left"><label class="dept-title">MR별 Call Activity</label> 현황</span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div id="mrCallActivityBox">
+			<div class="d-box">
+				<div class="inner-box" style="height: 448px;"></div>
+			</div>
+		</div>
+		<!-- Key Sales Activity 최근 1년 Trend -->
+		<div class="d-title mt20">
+		    <span class="left"><strong>Key Sales Activity </strong>최근 1년</span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div class="d-box">
+			<div class="inner-box">
+		        <div>
+		        	<div id="ksaRecent1year" class="mt15 chart-area area-sub" style="height: 500px;"></div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</body>

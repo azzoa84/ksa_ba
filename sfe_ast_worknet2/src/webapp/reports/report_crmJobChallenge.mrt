@@ -1,0 +1,872 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <CalculationMode>Interpretation</CalculationMode>
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="1">
+      <Detail Ref="2" type="DataTableSource" isKey="true">
+        <Alias>Detail</Alias>
+        <Columns isList="true" count="19">
+          <value>chk_lang_ablity1,System.String</value>
+          <value>dept_name,System.String</value>
+          <value>emp_name,System.String</value>
+          <value>employee_id,System.String</value>
+          <value>for_job_reason,System.String</value>
+          <value>for_job_role,System.String</value>
+          <value>oa_ability_remark,System.String</value>
+          <value>role_ability,System.String</value>
+          <value>role_edu_history,System.String</value>
+          <value>chk_lang_ablity2,System.String</value>
+          <value>chk_lang_ablity3,System.String</value>
+          <value>chk_lang_ablity4,System.String</value>
+          <value>chk_lang_ablity5,System.String</value>
+          <value>chk_oa_ability1,System.String</value>
+          <value>chk_oa_ability2,System.String</value>
+          <value>chk_oa_ability3,System.String</value>
+          <value>chk_oa_ability4,System.String</value>
+          <value>chk_oa_ability5,System.String</value>
+          <value>major,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Name>Detail</Name>
+        <NameInSource>DB</NameInSource>
+      </Detail>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="3" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="47">
+        <PageHeaderBand1 Ref="4" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text1 Ref="5" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.2,19,1.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Times New Roman,16,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>Job Challenge(사내공모) 지원서</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </PageHeaderBand1>
+        <PageFooterBand1 Ref="6" type="PageFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,26.7,19,1</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text21 Ref="7" type="Text" isKey="true">
+              <Border>None;[255:0:0];1;Solid;False;4;[0:0:0]</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Times New Roman,11,Bold</Font>
+              <Guid>9890801c9ade68c15d8462c1d14ee27c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="3" />
+              <Parent isRef="6" />
+              <Text>본 지원서는 기밀로 유지됩니다.</Text>
+              <TextBrush>[255:0:0]</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageFooterBand1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </PageFooterBand1>
+        <Text2 Ref="8" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.9,2.8,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text2</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>현소속</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text2>
+        <Text3 Ref="9" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>9.2,3.9,2.8,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>48a1cc9ba01fcc00634af4300d18ece1</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text3</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>전공</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text3>
+        <Text4 Ref="10" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.1,2.8,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>3b709c7b841594205cd14cd4d0cfddb7</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text4</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>이름</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text4>
+        <Text6 Ref="11" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>2.8,3.1,6.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>da2969dbf69119fff64e25afd95d2a73</Guid>
+          <Margins>8,0,0,0</Margins>
+          <Name>Text6</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>{Detail.emp_name}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>DataColumn</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text6>
+        <Text7 Ref="12" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>2.8,3.9,6.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>59ea683dbe8b2ba3c32b7176cb8be2f8</Guid>
+          <Margins>8,0,0,0</Margins>
+          <Name>Text7</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>{Detail.dept_name}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>DataColumn</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text7>
+        <Text5 Ref="13" type="Text" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5.2,2.8,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,10,Bold</Font>
+          <Guid>5aa7ba1ac134d8d49ddedc9146bd6b9b</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text5</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>1. 지원동기</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text5>
+        <Text9 Ref="14" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6.1,2.8,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>ad9207dc53b46d94a4321cd1907f4cb4</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text9</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>지원직무</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text9>
+        <Text10 Ref="15" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6.9,2.8,3.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>c98fa97b373cd7bcd6f8db31551cd61e</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text10</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>지원사유</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text10>
+        <Text11 Ref="16" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <CanGrow>True</CanGrow>
+          <ClientRectangle>2.8,6.1,16.2,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>d5b6e2d6128ea30ad88e3fca9c049d92</Guid>
+          <Margins>8,0,0,0</Margins>
+          <Name>Text11</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>{Detail.for_job_role}</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+          <Type>DataColumn</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text11>
+        <Text12 Ref="17" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>2.8,6.9,16.2,3.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>ee23f2e8b8dc02310a19201f304bda91</Guid>
+          <Margins>8,0,8,8</Margins>
+          <Name>Text12</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>{Detail.for_job_reason}</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+          <Type>DataColumn</Type>
+        </Text12>
+        <Text13 Ref="18" type="Text" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,11.4,16.8,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,10,Bold</Font>
+          <Guid>ce69c76dbea126f64135ff5db1b0660b</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text13</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>2. 지원직무 경험 및 희망직무와 관련한 자신의 역량(구체적 기술)</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text13>
+        <Text15 Ref="19" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,12.3,2.8,3.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>6c37304a5e8d03182a7d716221cd9d58</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text15</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>직무경험/
+희망직무와
+관련한 역량</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text15>
+        <Text17 Ref="20" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>2.8,12.3,16.2,3.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>fef455bd7d0be5194c38810052432487</Guid>
+          <Margins>8,0,8,8</Margins>
+          <Name>Text17</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>{Detail.role_ability}</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+          <Type>DataColumn</Type>
+        </Text17>
+        <Text14 Ref="21" type="Text" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,16.7,16.8,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,10,Bold</Font>
+          <Guid>942f8f0663add9211d6dad80fde43a94</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text14</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>3. 관련직무 교육이수이력</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text14>
+        <Text16 Ref="22" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,17.6,2.8,3.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>43e6449d0a51e20146d0781c05579d91</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text16</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>관련직무
+교육이수이력</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text16>
+        <Text18 Ref="23" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>2.8,17.6,16.2,3.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>cd286a4b2590b9d3ae84b10025a4431e</Guid>
+          <Margins>8,0,8,8</Margins>
+          <Name>Text18</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>{Detail.role_edu_history}</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+          <Type>DataColumn</Type>
+        </Text18>
+        <Text19 Ref="24" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>2.8,21.4,16.2,1</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Guid>97c34b52f612c51bdc7208391c04b0d8</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text19</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+          <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+          <Type>DataColumn</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text19>
+        <CheckBox1 Ref="25" type="CheckBox" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <Checked>{Detail.chk_lang_ablity1}</Checked>
+          <CheckStyleForFalse>NoneRectangle</CheckStyleForFalse>
+          <CheckStyleForTrue>CheckRectangle</CheckStyleForTrue>
+          <ClientRectangle>2.9,21.6,0.5,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ContourColor>Black</ContourColor>
+          <Name>CheckBox1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+        </CheckBox1>
+        <CheckBox2 Ref="26" type="CheckBox" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <Checked>{Detail.chk_lang_ablity2}</Checked>
+          <CheckStyleForFalse>NoneRectangle</CheckStyleForFalse>
+          <CheckStyleForTrue>CheckRectangle</CheckStyleForTrue>
+          <ClientRectangle>6.2,21.6,0.5,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ContourColor>Black</ContourColor>
+          <Guid>e820f55ba4dae6788c47b115da54888a</Guid>
+          <Name>CheckBox2</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+        </CheckBox2>
+        <CheckBox3 Ref="27" type="CheckBox" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <Checked>{Detail.chk_lang_ablity3}</Checked>
+          <CheckStyleForFalse>NoneRectangle</CheckStyleForFalse>
+          <CheckStyleForTrue>CheckRectangle</CheckStyleForTrue>
+          <ClientRectangle>9.5,21.6,0.5,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ContourColor>Black</ContourColor>
+          <Guid>f3f7697eb9990b0fe92b29a9ece9762b</Guid>
+          <Name>CheckBox3</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+        </CheckBox3>
+        <CheckBox4 Ref="28" type="CheckBox" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <Checked>{Detail.chk_lang_ablity4}</Checked>
+          <CheckStyleForFalse>NoneRectangle</CheckStyleForFalse>
+          <CheckStyleForTrue>CheckRectangle</CheckStyleForTrue>
+          <ClientRectangle>12.8,21.6,0.5,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ContourColor>Black</ContourColor>
+          <Guid>0be0ee4b90d45a2322e624c4f48e22c4</Guid>
+          <Name>CheckBox4</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+        </CheckBox4>
+        <CheckBox5 Ref="29" type="CheckBox" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <Checked>{Detail.chk_lang_ablity5}</Checked>
+          <CheckStyleForFalse>NoneRectangle</CheckStyleForFalse>
+          <CheckStyleForTrue>CheckRectangle</CheckStyleForTrue>
+          <ClientRectangle>16.1,21.6,0.5,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ContourColor>Black</ContourColor>
+          <Guid>073f6151f73af514dd4b2cea7e3bdd8d</Guid>
+          <Name>CheckBox5</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+        </CheckBox5>
+        <Text20 Ref="30" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,21.4,2.8,1</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>5afbc723ac4291b4bff28cd75a4b2a8d</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text20</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>어학수준</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text20>
+        <Text22 Ref="31" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,22.4,2.8,1</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>8afd456ac1896efc3134d8194fe86baa</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text22</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>OA능력</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text22>
+        <Text24 Ref="32" type="Text" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>3.4,21.6,2.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Guid>57e8cbf8cfe2a69a99bbc16c2ed935bd</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text24</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>advanced</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text24>
+        <Text25 Ref="33" type="Text" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>6.7,21.6,2.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Guid>14d4577ee76142c4a50576e7e11ce617</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text25</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>High-Intermediate</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text25>
+        <Text26 Ref="34" type="Text" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>10,21.6,2.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Guid>f91842a90735864ac42f05052eb2e64c</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text26</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>Mid-Intermediate</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text26>
+        <Text27 Ref="35" type="Text" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>13.3,21.6,2.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Guid>0eba2a8a9faf57fa95ae0cb934c47a92</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text27</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>pre-Intermediate</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text27>
+        <Text28 Ref="36" type="Text" isKey="true">
+          <Border>None;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>16.6,21.6,1.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Guid>f95f7b8593f989c51a025cf0ee63e1ee</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text28</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>basic</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text28>
+        <Text8 Ref="37" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>12,3.1,7,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>402d6274c566c39f13d1701efbc35358</Guid>
+          <Margins>8,0,0,0</Margins>
+          <Name>Text8</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>{Detail.employee_id}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>DataColumn</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text8>
+        <Text23 Ref="38" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>2.8,22.4,6.9,1</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,8</Font>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text23</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text23>
+        <Text34 Ref="39" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>9.7,22.4,2.3,1</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>b4188d5d9b7fba66856b69856fc6e9d0</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text34</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>OA능력(기타)</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text34>
+        <Text35 Ref="40" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>12,22.4,7,1</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,8</Font>
+          <Guid>38a722c763d1c92ba4705999e3bda5e4</Guid>
+          <Margins>8,0,0,0</Margins>
+          <Name>Text35</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>{Detail.oa_ability_remark}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>DataColumn</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text35>
+        <CheckBox11 Ref="41" type="CheckBox" isKey="true">
+          <Brush>Transparent</Brush>
+          <Checked>{Detail.chk_oa_ability1}</Checked>
+          <CheckStyleForFalse>NoneRectangle</CheckStyleForFalse>
+          <CheckStyleForTrue>CheckRectangle</CheckStyleForTrue>
+          <ClientRectangle>2.9,22.6,0.5,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ContourColor>Black</ContourColor>
+          <Name>CheckBox11</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+        </CheckBox11>
+        <CheckBox12 Ref="42" type="CheckBox" isKey="true">
+          <Brush>Transparent</Brush>
+          <Checked>{Detail.chk_oa_ability2}</Checked>
+          <CheckStyleForFalse>NoneRectangle</CheckStyleForFalse>
+          <CheckStyleForTrue>CheckRectangle</CheckStyleForTrue>
+          <ClientRectangle>4.1,22.6,0.5,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ContourColor>Black</ContourColor>
+          <Guid>7bb3e32ec824644d00182e6f27d97c07</Guid>
+          <Name>CheckBox12</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+        </CheckBox12>
+        <CheckBox13 Ref="43" type="CheckBox" isKey="true">
+          <Brush>Transparent</Brush>
+          <Checked>{Detail.chk_oa_ability3}</Checked>
+          <CheckStyleForFalse>NoneRectangle</CheckStyleForFalse>
+          <CheckStyleForTrue>CheckRectangle</CheckStyleForTrue>
+          <ClientRectangle>5.5,22.6,0.5,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ContourColor>Black</ContourColor>
+          <Guid>ad885e42409e03d2d462141f90c152ab</Guid>
+          <Name>CheckBox13</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+        </CheckBox13>
+        <CheckBox14 Ref="44" type="CheckBox" isKey="true">
+          <Brush>Transparent</Brush>
+          <Checked>{Detail.chk_oa_ability4}</Checked>
+          <CheckStyleForFalse>NoneRectangle</CheckStyleForFalse>
+          <CheckStyleForTrue>CheckRectangle</CheckStyleForTrue>
+          <ClientRectangle>6.7,22.6,0.5,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ContourColor>Black</ContourColor>
+          <Guid>79ddc5316132c4a97d47c916af9d85de</Guid>
+          <Name>CheckBox14</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+        </CheckBox14>
+        <CheckBox15 Ref="45" type="CheckBox" isKey="true">
+          <Brush>Transparent</Brush>
+          <Checked>{Detail.chk_oa_ability5}</Checked>
+          <CheckStyleForFalse>NoneRectangle</CheckStyleForFalse>
+          <CheckStyleForTrue>CheckRectangle</CheckStyleForTrue>
+          <ClientRectangle>8.1,22.6,0.5,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ContourColor>Black</ContourColor>
+          <Guid>166f2ba2cb35a9fd9ab890899e30ee46</Guid>
+          <Name>CheckBox15</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <TextBrush>Black</TextBrush>
+        </CheckBox15>
+        <Text36 Ref="46" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>3.4,22.6,0.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text36</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>상</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text36>
+        <Text37 Ref="47" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>4.6,22.6,0.7,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Guid>3dc4a34d3c2cfc087aea77955af800bc</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text37</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>중상</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text37>
+        <Text38 Ref="48" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>6,22.6,0.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Guid>24e1bfbc30747ac33854c5f6f80dd110</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text38</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>중</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text38>
+        <Text39 Ref="49" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>7.2,22.6,0.7,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Guid>e4f2bf6608423e66c5e6242d9fe3e02c</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text39</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>중하</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text39>
+        <Text40 Ref="50" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>8.6,22.6,0.7,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,8</Font>
+          <Guid>19b1857374db574b397684c4052384be</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text40</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>하</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text40>
+        <Text30 Ref="51" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>12,3.9,7,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>9ee0f60a3b934b58b4d606e5db056ab5</Guid>
+          <Margins>8,0,0,0</Margins>
+          <Name>Text30</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>{Detail.major}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>DataColumn</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text30>
+        <Text29 Ref="52" type="Text" isKey="true">
+          <Border>All;Black;1;Solid;False;4;[0:0:0]</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>9.2,3.1,2.8,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Times New Roman,9</Font>
+          <Guid>d52878da35bc4dc5a5eda9eb36e8d7e6</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text29</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>사번</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text29>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>0d2329184394fb6e508f2efff7782972</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="53" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="54" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>11/5/2018 10:34:02 PM</ReportChanged>
+  <ReportCreated>12/1/2017 1:39:42 PM</ReportCreated>
+  <ReportFile>D:\WorknetDev\eclipse-workspace\sfe_ast_worknet\src\webapp\reports\report_crmJobChallenge.mrt</ReportFile>
+  <ReportGuid>d2ea17118abd42f6b0e604f2c2444d32</ReportGuid>
+  <ReportImage isNull="true" />
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2017.1.2.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

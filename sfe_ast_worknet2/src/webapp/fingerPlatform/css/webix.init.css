@@ -1,0 +1,241 @@
+@charset "utf-8";
+
+/* TextArea */
+.webix_textarea_edit {
+	width:100%;
+	height:100%; 
+	box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	resize: none;
+}
+
+/* ComboBox */
+.webix_el_combo .webix_el_box {
+	padding: 2px 0px;
+}
+
+.webix_el_combo input {
+	font-size: 12px;
+	border: 1px solid #cacece;
+	border-radius: 2px;
+	padding-left: 5px;
+}
+
+/* Alert */
+.webix_modal_box.webix_confirm .webix_popup_text {
+	margin: 0 0 5px;
+	box-shadow: 0 3px #da1e48 inset;
+	padding-top: 30px;
+	min-height: 40px;
+}
+
+.webix_modal_box.webix_confirm .webix_popup_text > span {
+	margin: 0 5px;
+}
+
+.webix_modal_box.webix_confirm .webix_popup_button.confirm div {
+    font-size: 15px;
+    padding: auto 6px;
+    font-family: 'PT Sans',Tahoma;
+    border: 1px solid #3498db;
+    outline: 0;
+    background: #da1e48;
+    border-color: #da1e48;
+    border-bottom: 1px solid #da1e48;
+    box-shadow: none;
+    text-shadow: none;
+    color: #fff;
+}
+
+/* 날짜선택기 */
+.webix_view.webix_control.webix_el_datepicker { 
+	height:26px !important; box-sizing:border-box; border:1px solid #ccc; border-radius:0;
+	cursor: pointer; 
+}
+
+.webix_el_datepicker .webix_el_box .webix_inp_static {
+	border: 0px;
+	padding: 1px 6px;
+}
+
+/* (180510, 김영도) Datepicker 직접입력 추가로 인한 CSS 수정 */
+.webix_el_datepicker .webix_el_box > input {
+	border: 0px;
+	padding: 0px 5px;
+}
+
+.webix_input_icon.fa-calendar {
+	padding-top: 0px !important;
+	cursor: pointer;
+}
+
+.webix_input_icon.fa-calendar:before {
+	content:""; /*removes FontAwesome icon */
+	background: url(../images/icon_calendar.png) no-repeat center center;
+	right:5px;
+	width:20px;
+	height:20px;
+	display:block;
+}
+/* 날짜선택기 End */
+
+/* 트리 그리드 */
+.webix_tree_folder, .webix_tree_folder_open, .webix_tree_file,
+.webix_tree_close, .webix_tree_open {
+	background-size: 320px 96px;
+	background-image: url(../images/jstree/32px.png);
+}
+.webix_tree_folder {
+    background-position: -266px -3px;
+}
+.webix_tree_folder_open {
+	margin: 0px 3px 0px 0px;
+	background-position: -107px -68px;
+}
+.webix_tree_file {
+	/*background-position: -168px -3px;*/
+	background-position: -266px -3px;
+}
+.webix_tree_open {
+	margin: 2px 4px 0px 0px;
+    background-position: -38px -5px;
+}
+.webix_tree_close {
+	margin: 2px 4px 0px 0px;
+    background-position: -5px -5px;
+}
+
+/*
+.webix_tree_close, .webix_tree_open, .webix_tree_none {
+    background-color: transparent;
+    background-size: 320px 96px;
+    background-image: url(../images/jstree/32px.png);
+}
+.webix_tree_open {
+    background-position: -133px -5px;
+}
+*/
+/*
+element.style {
+    background-image: url(./fingerPlatform/images/jstree/tree_ico1.png);
+    background-position: center center;
+    background-size: auto;
+}
+*/
+
+/* 그리드 */
+/* 콤보박스에서 위 방향을 가리키는 화살표 숨김 */
+.webix_point_top { display:none !important; }
+
+.webix_column.align_center { text-align: center; }
+.webix_column.align_right { text-align: right; }
+
+/* (170509) Cell 수직중앙정렬(vertical-align) 적용을 위해 vertical_middle_cell (adjustRowHeight: true 일 때)에 설정 */
+.webix_column .vertical_middle_cell { position: relative; top: 50%; transform:translateY(-50%); }
+
+.webix_column .ellipsis { white-space: nowrap !important; text-overflow: ellipsis !important; }
+
+.webix_column.cells_link { /* color:#00a1db; */ color:#0e6dd8; text-decoration:underline; cursor:pointer; }
+.webix_column.cell_pos_middle div { position: relative; }
+
+.webix_hcell.col_edit { color:#e74c3c !important; font-weight:600 !important; }
+.webix_hcell.col_chk { color:#0e6dd8 !important; font-weight:600 !important; }
+.webix_hcell.multi_h_line { /* 컬럼헤더 <br> 멀티라인 적용을 위한 css 수정 (padding, line-height) */ line-height: 16px !important; padding: 6px 0px 6px 0px; }
+
+/* 그리드 말줄임표 적용 */
+.webix_dtable .webix_column:not(.multi_line) .webix_cell {
+	overflow: hidden !important;
+	white-space: nowrap !important;
+	text-overflow: ellipsis !important;
+}
+
+/* 그리드 내 multiFilter 체크박스 */
+.webix_popup .webix_view.webix_multilist .webix_list_item {
+	padding: 0px;	
+}
+.webix_popup .webix_view.webix_multilist .webix_list_item .webix_icon {
+	font-size:17px; width:19px; vertical-align: middle;
+}
+
+/* 그리드 체크박스 */
+.webix_table_checkbox {
+	width:18px;
+	height:18px;
+	margin-top:8px;
+}
+
+/* 그리드 내 textarea (multi_line_edit) */
+.webix_textarea_edit {
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+.webix_icon.fa-square-o, .webix_icon.fa-check-square-o {
+	/*margin-top:8px;*/
+}
+
+.webix_cell .webix_icon.fa-square-o, 
+.webix_cell .webix_icon.fa-check-square-o {
+	margin-top:8px;
+}
+
+.webix_ss_filter select {
+	margin-top:0px;
+}
+
+.webix_view { font-family:'Noto Sans KR',tahoma,AppleGothic,Sans-serif; font-size: 13px; }
+.webix_view.webix_dtable { /*border: none !important;*/ }
+
+.webix_hcell {
+	font-family:'Noto Sans KR',tahoma,AppleGothic,Sans-serif; 
+	font-size: 13px;
+	background: #f1f1f1;
+	text-align: center;
+	color: #4a4a4a;
+}
+
+.webix_hcell.webix_div_filter {
+	/* 필터영역 padding값 제거 */
+	padding: 0px !important;
+}
+.webix_ss_footer .webix_hcell { 
+    text-align: right;
+}
+/* 그리드 End */
+
+/* 탭바 */
+.webix_tab_filler {
+	border-bottom: 1px solid #cecece;
+}
+.webix_tab_filler:first-child {
+	border-right-width: 0px;
+}
+.webix_item_tab {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #cecece;
+    background-color: #ffffff;
+    color: #454544;
+    font-size: 12px;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomright: 0px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.webix_item_tab.webix_selected { background: #fff5db; }
+/* 탭바 End */

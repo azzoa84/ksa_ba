@@ -1,0 +1,127 @@
+<body>
+	<style>
+	.home-css-wrap a { color:#666; text-decoration:none; }
+	.home-css-wrap hr, 
+	.home-css-wrap caption, 
+	.home-css-wrap legend { display:none; }
+	.home-css-wrap colgroup { background:none; }
+	.home-css-wrap h2 { font-family: 'Noto Sans KR', sans-serif; font-size:100%; font-weight:500; margin:0; padding:0; border:0; }
+	.home-css-wrap ul, .home-css-wrap ol, .home-css-wrap li { list-style:none; }
+	.home-css-wrap table { clear:both; width:100%; border-spacing:0; border:0; table-layout: fixed; }
+	.home-css-wrap p, .home-css-wrap div, .home-css-wrap th, .home-css-wrap td { font-size:100%; }
+	.home-css-wrap img, .home-css-wrap input, .home-css-wrap select, .home-css-wrap textarea{ vertical-align:middle; border-radius:0; }
+	
+	.home-css-wrap { margin:0; padding:0; font-size:13px; font-family: 'Noto Sans KR', sans-serif; font-weight:400; line-height:1.2; color:#666; }
+	.home-css-wrap {width:1200px; margin:0 auto;}
+	.home-css-wrap > div{ height:280px; /*height:330px;*/ overflow:hidden; box-sizing:border-box; border:1px solid #a7a9ac; border-radius:4px;}
+	.home-css-wrap .approval{float:left; width:176px; margin:0 10px 10px 0;}
+	.home-css-wrap .receipt{float:left; width:304px; margin:0 10px 10px 0;}
+	.home-css-wrap .bbs-latest{ float:left; width:700px; margin:0 0 10px; }
+	.home-css-wrap .bbs-latest .list-area { height:240px; /*height:290px;*/ overflow-y:auto; }
+	.home-css-wrap .schedule{clear:both;}
+	.home-css-wrap .title-area{height:38px; padding:0 0 0 17px !important; line-height:38px; border-bottom:1px solid #da1e48; background:#f5f5f5;}
+	.home-css-wrap .title-area h2{display:inline-block; font-size:16px; color:#505050; padding:0 18px 0 0; /* background:url(./img/home/arrow_title.gif) no-repeat right center; */}
+	.home-css-wrap .home-item dt{height:34px; font-size:14px; color:#666;}
+	.home-css-wrap .home-item dd{font-size:28px; color:#444;}
+	.home-css-wrap .home-item dd:hover { color:#da1e48; }
+	.home-css-wrap .approval .home-item { margin:35px 0 0 24px; /*margin:55px 0 0 24px;*/ padding-left:80px;}
+	.home-css-wrap .approval .first{ background:url(./img/home/blt01.jpg) no-repeat; cursor:pointer; }
+	.home-css-wrap .approval .first:hover{background:url(./img/home/blt01_over.jpg) no-repeat;}
+	.home-css-wrap .approval .last{ background:url(./img/home/blt02.jpg) no-repeat; cursor:pointer; }
+	.home-css-wrap .approval .last:hover{background:url(./img/home/blt02_over.jpg) no-repeat;}
+	.home-css-wrap .receipt > div{clear:both; overflow:hidden; padding:0 0 0 60px;}
+	.home-css-wrap .receipt .first { margin:35px 0 0 24px; /*margin:55px 0 0 24px;*/ background:url(./img/home/blt03.jpg) no-repeat; cursor:pointer;}
+	.home-css-wrap .receipt .first:hover{background:url(./img/home/blt03_over.jpg) no-repeat;}
+	.home-css-wrap .receipt .last { margin:35px 0 0 24px; /*margin:55px 0 0 24px;*/ background:url(./img/home/blt04.jpg) no-repeat; cursor:pointer;}
+	.home-css-wrap .receipt .last:hover{background:url(./img/home/blt04_over.jpg) no-repeat;}
+	.home-css-wrap .receipt .home-item{float:left; margin:0 0 0 32px;}
+	.home-css-wrap .tbl-latest{font-size:13px; color:#53545e;}
+	.home-css-wrap .tbl-latest th{padding:9px; font-weight:500; border-left:1px solid #eee; border-bottom:1px solid #a7a9ac;}
+	.home-css-wrap .tbl-latest td{padding:8px 0; text-align:center; border-left:1px solid #eee; border-bottom:1px solid #eee;}
+	.home-css-wrap .tbl-latest th:first-child,
+	.home-css-wrap .tbl-latest td:first-child{border-left:0;}
+	.home-css-wrap .tbl-latest td.title{ padding-left:8px; text-align:left; cursor:pointer; }
+	.home-css-wrap .tbl-latest td.title span { display:inline-block; }
+	.home-css-wrap .tbl-latest td.title span.new { width:370px; height:16px; }
+	.home-css-wrap .tbl-latest td.title span.old { width:390px; height:16px; }
+	.home-css-wrap .tbl-latest td.title i.new { padding:0px 15px 0px 0px; background: url(./img/home/icon_new.png) no-repeat right top; /*url(./img/home/icon_new.png) no-repeat right center;*/ margin-right:5px; }
+	.home-css-wrap .tbl-latest .ellipsis { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+	/*
+	.home-css-wrap .tbl-latest td.gubun,
+	.home-css-wrap .tbl-latest td.title { overflow:hidden; white-space: nowrap; text-overflow: ellipsis !important; }
+	*/
+	</style>
+
+	<div class="home-css-wrap">
+		<div class="approval">
+			<div class="title-area">
+				<h2>결재함 / 기안함</h2>
+			</div>
+			<dl class="first home-item">
+				<dt>결재함</dt>
+				<dd>0</dd>
+			</dl>
+			<dl class="last home-item">
+				<dt>기안함</dt>
+				<dd>0</dd>
+			</dl>
+		</div>
+		<div class="receipt">
+			<div class="title-area">
+				<h2>미정산영수증</h2>
+			</div>
+			<div class="first">
+				<dl class="card home-item">
+					<dt>법인카드<br>영수증</dt>
+					<dd>0</dd>
+				</dl>
+				<dl class="dcard home-item">
+					<dt>전달대기<br>영수증</dt>
+					<dd>0</dd>
+				</dl>
+			</div>
+			<div class="last">
+				<dl class="esero home-item">
+					<dt>전자세금<br>계산서</dt>
+					<dd>0</dd>
+				</dl>
+				<dl class="desero home-item">
+					<dt>전달대기<br>계산서</dt>
+					<dd>0</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="bbs-latest">
+			<div class="title-area">
+				<h2>게시판 최신글</h2>
+			</div>
+			<div class="list-area">
+				<table class="tbl-latest">
+					<caption>최신글</caption>
+					<colgroup>
+						<col style="width:17%">
+						<col style="">
+						<col style="width:11%">
+						<col style="width:13%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">분류</th>
+							<th scope="col">제목</th>
+							<th scope="col">글쓴이</th>
+							<th scope="col">등록일</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>			
+		</div>
+	
+		<div class="schedule" style="height:460px;">
+			<div class="title-area">
+				<h2>주간일정표</h2>
+			</div>
+		</div>
+	</div>
+</body>

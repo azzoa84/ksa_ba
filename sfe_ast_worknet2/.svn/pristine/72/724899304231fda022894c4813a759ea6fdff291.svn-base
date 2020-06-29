@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="pay_excel">
+	<typeAlias alias="fingerMap" type="fingersales.common.util.FingerParamMap"/>
+	
+	<delete id="pay_excel.deleteHrpPayResult" parameterClass="java.util.HashMap">
+		delete from hr.dbo.hrpPayResult where pay_yyyymm = #pay_yyyymm# and pay_calculate_type = #pay_calculate_type#
+	</delete>
+	
+	<delete id="pay_excel.deleteHrpPayResultDetail" parameterClass="java.util.HashMap">
+		delete from hr.dbo.hrpPayResultDetail where pay_yyyymm = #pay_yyyymm# and pay_calculate_type = #pay_calculate_type#
+	</delete>
+	
+	<delete id="pay_excel.deleteHrpPayCalculation" parameterClass="java.util.HashMap">
+		delete from hr.dbo.hrpPayCalculation where pay_yyyymm = #pay_yyyymm# and pay_calculate_type = #pay_calculate_type#
+	</delete>
+	
+	<insert id="pay_excel.hrpPayResult" parameterClass="java.util.HashMap">
+		insert into hr.dbo.hrpPayResult
+		(
+			site_code,
+			pay_yyyymm,
+			pay_calculate_type,
+			pay_type,
+			emp_code,
+			tax_site_code,
+			pay_group_code,
+			dept_code,
+			dept_name,
+			position_code,
+			duty_code,
+			tax_calculate_type,
+			tax_rate,
+			bonus_calculate_type,
+			bonus_apply_yyyymm_fr,
+			bonus_apply_yyyymm_to,
+			bonus_rate,
+			bonus_amt,
+			pay_amt,
+			pay_total_amt,
+			tax_free_amt,
+			pay_deduction_amt,
+			pay_net_amt,
+			update_userid,
+			update_time,
+			update_pc
+		) 
+		values 
+		(
+			#site_code#,
+			#pay_yyyymm#,
+			#pay_calculate_type#,
+			#pay_type#,
+			#emp_code#,
+			#tax_site_code#,
+			#pay_group_code#,
+			#dept_code#,
+			#dept_name#,
+			#position_code#,
+			#duty_code#,
+			#tax_calculate_type#,
+			#tax_rate#,
+			#bonus_calculate_type#,
+			#bonus_apply_yyyymm_fr#,
+			#bonus_apply_yyyymm_to#,
+			#bonus_rate#,
+			#bonus_amt#,
+			#pay_amt#,
+			#pay_total_amt#,
+			#tax_free_amt#,
+			#pay_deduction_amt#,
+			#pay_net_amt#,
+			#user_id#,
+			getdate(),
+			#host_info#
+		)
+	</insert>
+	
+	<insert id="pay_excel.hrpPayResultDetail" parameterClass="java.util.HashMap">
+		insert into hr.dbo.hrpPayResultDetail
+		(
+			site_code,
+			pay_yyyymm,
+			pay_calculate_type,
+			pay_type,
+			emp_code,
+			pay_item_code,
+			pay_amt,
+			tax_free_amt
+		) 
+		values 
+		(
+			#site_code#,
+			#pay_yyyymm#,
+			#pay_calculate_type#,
+			#pay_type#,
+			#emp_code#,
+			#pay_item_code#,
+			#pay_amt#,
+			#tax_free_amt#
+		)
+	</insert>
+	
+	<insert id="pay_excel.hrpPayCalculation" parameterClass="java.util.HashMap">
+		insert into hr.dbo.hrpPayCalculation
+		(
+			site_code,
+			pay_yyyymm,
+			pay_calculate_type,
+			pay_type,
+			pay_date,
+			tax_calculate_type,
+			tax_rate,
+			bonus_calculate_type,
+			bonus_rate,
+			bonus_apply_yyyymm_fr,
+			bonus_apply_yyyymm_to,
+			fi_org_code,
+			entry_date,
+			entry_num,
+			pay_close_yn,
+			pay_close_memo,
+			insert_userid,
+			insert_time,
+			insert_pc,
+			update_userid,
+			update_time,
+			update_pc
+		) 
+		values 
+		(
+			#site_code#,
+			#pay_yyyymm#,
+			#pay_calculate_type#,
+			#pay_type#,
+			#pay_date#,
+			#tax_calculate_type#,
+			#tax_rate#,
+			#bonus_calculate_type#,
+			#bonus_rate#,
+			#bonus_apply_yyyymm_fr#,
+			#bonus_apply_yyyymm_to#,
+			#fi_org_code#,
+			#entry_date#,
+			#entry_num#,
+			#pay_close_yn#,
+			#pay_close_memo#,
+			#user_id#,
+			getdate(),
+			#host_info#,
+			#user_id#,
+			getdate(),
+			#host_info#
+		)
+	</insert>
+</sqlMap>

@@ -1,0 +1,52 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:s="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+		
+	<bean id="userDetailsService" class="fingersales.common.service.UserDetailsService" />
+		
+	<bean id="preAuthenticatedUserDetailsService" class="fingersales.common.service.PreAuthenticatedUserDetailsService" />
+	<bean id="preAuthenticatedProcessingFilter" class="fingersales.common.filter.PreAuthenticatedProcessingFilter">
+		<property name="authenticationManager" ref="authenticationManager" />
+	</bean>
+	
+	<bean id="preAuthenticatedAuthenticationProvider" class="org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider">
+		<property name="preAuthenticatedUserDetailsService">
+			<bean class="fingersales.common.service.PreAuthenticatedUserDetailsService" />
+		</property>
+	</bean>	
+
+	<bean id="authenticationSuccessHandler" class="fingersales.common.handler.AuthenticationSuccessHandler" />
+	<bean id="authenticationFailureHandler" class="fingersales.common.handler.AuthenticationFailureHandler">
+		<property name="defaultFailureUrl" value="/login.do"/>
+		<property name="useForward" value="true" />
+	</bean>
+
+	<s:http use-expressions="true">
+		<s:intercept-url pattern="/link.do" access="permitAll" />
+		<s:intercept-url pattern="/login*" access="permitAll" />
+		<s:intercept-url pattern="/activator.aspx" access="permitAll" />
+		<s:intercept-url pattern="/fingerPlatform/**" access="permitAll" />
+		<s:intercept-url pattern="/dev/**" access="permitAll" />
+		<s:intercept-url pattern="/css/**" access="permitAll"/>
+		<s:intercept-url pattern="/img/**" access="permitAll"/>
+		<s:intercept-url pattern="/js/**" access="permitAll"/>
+		<s:intercept-url pattern="/lib/**" access="permitAll"/>
+		<s:intercept-url pattern="/common/**" access="permitAll" />
+		<s:intercept-url pattern="/dhtmlx/**" access="permitAll" />
+		
+		<s:intercept-url pattern="/**" access="isAuthenticated()" />
+		<s:custom-filter position="PRE_AUTH_FILTER" ref="preAuthenticatedProcessingFilter" />
+		
+		<s:form-login login-page="/login.do" authentication-failure-handler-ref="authenticationFailureHandler" authentication-success-handler-ref="authenticationSuccessHandler"/>
+	</s:http>
+	
+	<s:authentication-manager alias="authenticationManager">
+		<s:authentication-provider user-service-ref="userDetailsService"/>
+		<s:authentication-provider ref="preAuthenticatedAuthenticationProvider" />
+	</s:authentication-manager>
+
+</beans>

@@ -1,0 +1,191 @@
+<body>
+	<style>
+	   /* *{box-sizing:border-box;padding:0;margin:0} */
+	   .ast-call-result{font-family:'Nanum Gothic','나눔고딕',sans-serif !important;width:1200px;margin:0 auto;padding:0 0 30px 0}
+	   .ast-call-result *{box-sizing:border-box;padding:0;margin:0}
+	   .ast-call-result table{width:100%;border-collapse:collapse}
+	   .ast-call-result .d-title{display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:bold;margin-top:30px}
+	   .ast-call-result .d-title .left{color:#333}
+	   .ast-call-result .d-title .left strong{color:#048ee5}
+	   .ast-call-result .d-title .left img{vertical-align:-5px}
+	   .ast-call-result .d-title .right{color:#666}
+	   .ast-call-result .d-title .move-link {cursor: pointer;}
+	   .ast-call-result .d-title+.d-box{margin-top:10px}
+	   .ast-call-result .d-title .link-txt {font-size:12px;color:#969393;}
+	   .ast-call-result .d-box{display:flex;background-color:#e9edf2;border:1px solid #dfe5ec;border-radius:3px;padding:15px}
+	   .ast-call-result .d-box .inner-box{flex:1;padding:18px 0 0 0;background-color:#fff; position: relative;}
+	   .ast-call-result .d-box .inner-box+.inner-box{margin-left:16px}
+	   .ast-call-result .d-box .inner-box .sub-title{position:absolute;right:17px;top:22px;font-weight:600;color:blue;}
+	   .ast-call-result .d-box .inner-box .multi-box {position:relative;height: 390px;}
+	   .ast-call-result .d-box .inner-box .multi-box .target-call-str {position: absolute;top:8px;width:50px;font-size:11px;font-weight: bold;color:#606060;text-align:right;}
+	   .ast-call-result .d-box .chart-title{font-size:16px;line-height:1;color:#048ee5;font-weight:bold;padding-left:16px;margin-left: 16px;border-left:2px solid #048ee5}
+	   .ast-call-result .d-box .chart-title span{font-size:16px;color:#777;font-weight:bold}
+	   .ast-call-result .d-box .chart-area{height:370px;padding:0px 5px 0px 5px;}
+	   
+	   .ast-call-result .d-box .chart-area.area-fit{height:auto}
+	   .ast-call-result .d-box .chart-area.area-call{height:343px;}
+	   .ast-call-result .d-box .chart-area.area-sub{width: 295px; height: 390px; float: left;}
+	   .ast-call-result .d-box .table-area{padding:0 25px 15px 25px}
+	   .ast-call-result .d-box .table-area.area-sub{width: 60px; height: 375px; float: left; margin-left: 8px; padding: 0;}
+	   .ast-call-result .d-box .table-area .table-title{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#999}
+	   .ast-call-result .d-box .table-area table{margin-top:7px}
+	   .ast-call-result .d-box .table-area table th,.ast-call-result .d-box .table-area table td{height:24px;font-size:13px;color:#333;text-align:center;font-weight:bold;padding: 5px 0;}
+	   .ast-call-result .d-box .table-area table th{background-color:#f2f2f2}
+	   .ast-call-result .d-box .table-area .font-focus{color: red;}
+	   .ast-call-result .d-box .table-area .table-line{border:1px solid #cacece;}
+	   .ast-call-result .d-box .table-bar-chart{height:340px;padding:20px 18px}
+	   .ast-call-result .d-box .table-bar-chart thead th{height:24px;font-size:11px;color:#999}
+	   .ast-call-result .d-box .table-bar-chart tbody tr:nth-child(odd){background-color:#f9f9f9}
+	   .ast-call-result .d-box .table-bar-chart tbody th{height:34px;font-size:11px;color:#999;background-color:#fff}
+	   .ast-call-result .d-box .table-bar-chart tbody td{position:relative;border-top:1px solid #ececec;border-bottom:1px solid #ececec;text-align:center;font-size:11px;color:#666;line-height: 18px;}
+	   .ast-call-result .d-box .table-bar-chart .bar-group{position:absolute;top:0;left:0;right:0;bottom:0}
+	   .ast-call-result .d-box .table-bar-chart .bar-group .backs{width:100%;height:100%;display:flex}
+	   .ast-call-result .d-box .table-bar-chart .bar-group .backs span{flex:1;border-left:1px solid #ececec}
+	   .ast-call-result .d-box .table-bar-chart .bar-group .backs span:nth-child(odd){background-color:rgba(245,245,245,0.5)}
+	   .ast-call-result .d-box .table-bar-chart .bar-group .backs span:last-child{border-right:1px solid #ececec}
+	   .ast-call-result .d-box .table-bar-chart .bar-group .bar{position:absolute;top:7px;left:0;height:17px;background-color:#58b0ec;font-size:11px;color:#fff;text-align:center;padding-top:2px}
+	   .ast-call-result .mt10{margin-top:10px;}
+	   .ast-call-result .mt20{margin-top:20px;}
+	   .ast-call-result .mt30{margin-top:30px;}
+	   .ast-call-result .mb10{margin-bottom:10px;}
+	   
+	</style>
+	
+	<div class="ast-call-result">
+		<div class="d-title mt10">
+		    <span class="left"><strong>Call 실행</strong> 현황 <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link call-result"> <label class="link-txt">[고객별Call조회]로 이동</label></span>
+		</div>
+		<div class="d-box">
+		    <div class="inner-box">
+		        <p class="chart-title">주간<span id="weeklyTxt" style="margin-left: 5px; color: #999; font-size: 11px; font-weight: normal;"></span></p>
+		        <div class="sub-title">실행률</div>
+		        <div class="multi-box">
+		        	<div id="weeklyCallResultChart" class="chart-area area-sub"></div>
+		        	<div id="weeklyCallResultTableSub" class="table-area area-sub"></div>
+		        </div>
+		       	<div id="weeklyCallResultTable" class="table-area">
+		       		<p class="table-title">
+		                <span>영엽소 합계</span>
+		            </p>
+		            <table>
+		                <tr>
+		                    <th>목표 Call</th><th>실행 Call</th><th>실행률</th>
+		                </tr>
+		            </table>
+		       	</div>
+		    </div>
+		    <div class="inner-box">
+		        <p class="chart-title">당월</p>
+		        <div class="sub-title">실행률</div>
+				<div style="height: 390px;">
+		        	<div id="monthlyCallResultChart" class="chart-area area-sub"></div>
+		        	<div id="monthlyCallResultTableSub" class="table-area area-sub"></div>
+		        </div>
+		       	<div id="monthlyCallResultTable" class="table-area">
+		       		<p class="table-title">
+		                <span>영엽소 합계</span>
+		            </p>
+		            <table>
+		                <tr>
+		                    <th>목표 Call</th><th>실행 Call</th><th>실행률</th>
+		                </tr>
+		            </table>
+		       	</div>
+		    </div>
+		    <div class="inner-box">
+		        <p class="chart-title">반기</p>
+		        <div class="sub-title">실행률</div>
+		        <div style="height: 390px;">
+		        	<div id="halfCallResultChart" class="chart-area area-sub"></div>
+		        	<div id="halfCallResultTableSub" class="table-area area-sub"></div>
+		        </div>
+		       	<div id="halfCallResultTable" class="table-area">
+		       		<p class="table-title">
+		                <span>영엽소 합계</span>
+		            </p>
+		            <table>
+		                <tr>
+		                    <th>목표 Call</th><th>실행 Call</th><th>실행률</th>
+		                </tr>
+		            </table>
+		       	</div>	
+		    </div>
+		</div>
+		
+		<!-- 품목별 Call Share -->
+		<div class="d-title mt20">
+		    <span class="left"><strong>품목별 Call</strong> Share <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link product-call"> <label class="link-txt">[고객별Call조회]로 이동</label></span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div id="productShareBox" class="d-box">
+		    <div id="targetProductShareBox" class="inner-box" style="width: 300px;">
+		        <p class="chart-title mb10">권장 Call Share</p>
+		        <div id="targetProductCallShareChart" class="chart-area" style="height: 390px;"></div>
+		    </div>
+		    <div id="excProductShareBox" class="inner-box" style="width: 900px; flex: inherit;">
+		        <p class="chart-title mb10">실행 Call Share</p>
+		        <div id="exeProductCallShareChart" class="chart-area" style="height: 390px;"></div>
+		    </div>
+		</div>
+		
+		<!-- 진료과 별 Call 집중도 -->
+		<div class="d-title mt20">
+		    <span class="left"><strong>진료과 별 Call</strong> 집중도 <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link med-call-share">  <label class="link-txt">[고객별Call조회]로 이동</label></span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div class="d-box">
+		    <div class="inner-box">
+		        <p class="chart-title mb10">목표 Call Share</p>
+		        <div id="medFxCallShareChart" class="chart-area" style="height: 350px;"></div>
+		    </div>
+		    <div class="inner-box">
+		        <p class="chart-title mb10">실행 Call Share</p>
+		        <div id="medExcCallShareChart" class="chart-area" style="height: 350px;"></div>
+		    </div>
+		</div>
+		
+		<!-- 진료과 별 Call 실행 현황 -->
+		<div class="d-title mt20">
+		    <span class="left"><strong>진료과 별 Call 실행</strong> 현황 <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link med-call-result"> <label class="link-txt">[고객별Call조회]로 이동</label></span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div class="d-box">
+		    <div class="inner-box">
+		        <p class="chart-title mb10">목표 Call Share</p>
+		        <div id="medCallResultChart" class="chart-area mb10" style="height: 290px;"></div>
+		        <div id="medCallResultPieDiv" style="height: 150px; display: flex; margin-left: 56px;">
+		        </div>
+		    </div>
+		</div>
+		
+		<!-- 고객 등급 별 Call Share -->
+		<div class="d-title mt20">
+		    <span class="left"><strong>고객 등급 별 Call</strong> Share <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link call-level"> <label class="link-txt">[고객별Call조회]로 이동</label></span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div class="d-box">
+			<div class="inner-box">
+		        <div id="contactCallShareChart" class="chart-area" style="height: 390px;"></div>
+		    </div>
+		    <div class="inner-box" style="flex: inherit; width: 400px; margin-left: 0;">
+		        <div class="table-area" style="margin-top: 20px;">
+		            <table>
+		            	<colgroup>
+							<col style="width:25%;">
+							<col style="width:25%;">
+							<col style="width:25%;">
+							<col style="width:25%;">
+						</colgroup>
+		                <tr>
+		                    <th class="table-line">목표 Call</th>
+		                    <th class="table-line">실행 Call</th>
+		                    <th class="table-line">실행률</th>
+		                    <th class="table-line">일 평균 Call</th>
+		                </tr>
+		                <tbody id="contactCallShareTable"></tbody>
+		            </table>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,183 @@
+<body>
+	<style>
+	   /* *{box-sizing:border-box;padding:0;margin:0} */
+	   .ast-dash{font-family:'Nanum Gothic','나눔고딕',sans-serif;width:1200px;margin:0 auto;padding:0 0 30px 0}
+	   .ast-dash *{box-sizing:border-box;padding:0;margin:0}
+	   .ast-dash table{width:100%;border-collapse:collapse}
+	   .ast-dash .d-title{display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:bold;margin-top:30px}
+	   .ast-dash .d-title .left{color:#333}
+	   .ast-dash .d-title .left strong{color:#048ee5}
+	   .ast-dash .d-title .left img{vertical-align:-5px}
+	   .ast-dash .d-title .right{color:#666}
+	   .ast-dash .d-title .move-link {cursor: pointer;}
+	   .ast-dash .d-title+.d-box{margin-top:10px}
+	   .ast-dash .d-title .link-txt {font-size:12px;color:#969393;}
+	   .ast-dash .d-box{display:flex;background-color:#e9edf2;border:1px solid #dfe5ec;border-radius:3px;padding:15px}
+	   .ast-dash .d-box .inner-box{flex:1;padding:18px 0 0 0;background-color:#fff}
+	   .ast-dash .d-box .inner-box+.inner-box{margin-left:16px}
+	   .ast-dash .d-box .inner-box .mini-font {position: absolute;right:10px;color:#999;top:4px;text-align:right;width:80px;font-weight: normal;font-size:11px;}
+	   .ast-dash .d-box .chart-title{font-size:16px;line-height:1;color:#048ee5;font-weight:bold;padding-left:16px;margin-left: 16px;border-left:2px solid #048ee5;position: relative;}
+	   .ast-dash .d-box .chart-title span{font-size:16px;color:#777;font-weight:bold}
+	   /* .ast-dash .d-box .chart-area{height:280px;padding:20px 18px} */
+	   .ast-dash .d-box .chart-area{height:280px;padding:20px 5px 0px 5px;}
+	   
+	   .ast-dash .d-box .chart-area.area-fit{height:auto}
+	   .ast-dash .d-box .chart-area.area-call{height:371px;}
+	   .ast-dash .d-box .table-area{padding:0 25px 15px 25px}
+	   .ast-dash .d-box .table-area .table-title{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#999}
+	   .ast-dash .d-box .table-area table{margin-top:7px}
+	   .ast-dash .d-box .table-area table th,.ast-dash .d-box .table-area table td{height:24px;font-size:13px;color:#333;text-align:center;font-weight:bold}
+	   .ast-dash .d-box .table-area table th{background-color:#f2f2f2}
+	   .ast-dash .d-box .table-bar-chart{height:340px;padding:20px 18px}
+	   .ast-dash .d-box .table-bar-chart thead th{height:24px;font-size:11px;color:#999}
+	   .ast-dash .d-box .table-bar-chart tbody tr:nth-child(odd){background-color:#f9f9f9}
+	   .ast-dash .d-box .table-bar-chart tbody th{height:34px;font-size:11px;color:#999;background-color:#fff}
+	   .ast-dash .d-box .table-bar-chart tbody td{position:relative;border-top:1px solid #ececec;border-bottom:1px solid #ececec;text-align:center;font-size:11px;color:#666}
+	   .ast-dash .d-box .table-bar-chart .bar-group{position:absolute;top:0;left:0;right:0;bottom:0}
+	   .ast-dash .d-box .table-bar-chart .bar-group .backs{width:100%;height:100%;display:flex}
+	   .ast-dash .d-box .table-bar-chart .bar-group .backs span{flex:1;border-left:1px solid #ececec}
+	   .ast-dash .d-box .table-bar-chart .bar-group .backs span:nth-child(odd){background-color:rgba(245,245,245,0.5)}
+	   .ast-dash .d-box .table-bar-chart .bar-group .backs span:last-child{border-right:1px solid #ececec}
+	   .ast-dash .d-box .table-bar-chart .bar-group .bar{position:absolute;top:7px;left:0;height:17px;background-color:#58b0ec;font-size:11px;color:#fff;text-align:center;padding-top:2px}
+	</style>
+	
+	<div class="ast-dash">
+		<div class="d-title" style="margin-top: 10px;">
+		    <span class="left"><strong>달성률</strong> 현황 <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link achievement"> <label class="link-txt">[목표 실적]으로 이동</label></span>
+		    <span class="right">당월/반기</span>
+		</div>
+		<div class="d-box">
+		    <div class="inner-box">
+		        <p class="chart-title">당월<label class="dsmViewText mini-font">(단위: 천 원)</label></p>
+		        <div id="achieveMentNowChart" class="chart-area"></div>
+		    </div>
+		    <div class="inner-box">
+		        <p class="chart-title">반기<label class="dsmViewText mini-font">(단위: 천 원)</label></p>
+		        <div id="achieveMentHalfChart" class="chart-area"></div>
+		    </div>
+		</div>
+		
+		<div class="d-title">
+		    <span class="left"><strong>성장률</strong> 현황 <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link achievement"> <label class="link-txt">[목표실적]으로 이동</label></span>
+		    <span class="right">당월/반기누적</span>
+		</div>
+		<div class="d-box">
+		    <div class="inner-box">
+		        <p class="chart-title">당월<label class="dsmViewText mini-font">(단위: 천 원)</label></p>
+		        <div id="growthNowChart" class="chart-area"></div>
+		    </div>
+		    <div class="inner-box">
+		        <p class="chart-title">반기누적<label class="dsmViewText mini-font">(단위: 천 원)</label></p>
+		        <div id="growthHalfChart" class="chart-area"></div>
+		    </div>
+		</div>
+		
+		<div class="d-title">
+		    <span class="left"><strong>Call / 고객 Coverage</strong> 
+		    <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link call-result" style="margin-left:89px;"> <label class="link-txt">[Call/고객]의 [Call결과]로 이동</label>
+		    <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link call-coverage" style="margin-left:317px;"> <label class="link-txt">[Call/고객]의 [Coverage]로 이동</label></span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div class="d-box" style="background: white !important;">
+		    <div class="inner-box">
+		        <div class="chart-area area-call"></div>
+		    </div>
+		</div>
+		
+		<div class="d-title">
+		    <span class="left"><strong>Key</strong> Sales Activity <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link key-sales-activity"> <label class="link-txt">[Call/고객]의 [Key Sales Activity]로 이동</label></span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div class="d-box">
+		    <div class="inner-box">
+		        <div id="keySalesActivityChart" class="chart-area" style="height:360px; padding: 0;"></div>
+		    </div>
+		</div>
+		
+		
+		<div class="d-title">
+		    <span class="left"><strong>예산</strong> 사용 현황 <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link budget-use"> <label class="link-txt">[예산]으로 이동</label></span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div class="d-box">
+		    <div class="inner-box">
+		        <p class="chart-title">AM예산 진행률</p>
+		        <div id="amBudgetProgressChart" class="chart-area" style="height: 340px;"></div>
+		        <div id="amBudgetProgressTable" class="table-area">
+		            <p class="table-title">
+		                <span>현재 배정기준</span>
+		                <span class="dsmViewText">(단위: 천 원)</span>
+		            </p>
+		            <table>
+		                <tr>
+		                    <th>배정</th><th>사용</th><th>가용</th><th>사용률</th>
+		                </tr>
+		                <tr>
+		                    <td></td><td></td><td></td><td></td>
+		                </tr>
+		            </table>
+		        </div>
+		    </div>
+		    <div class="inner-box">
+		        <p class="chart-title">정책지원예산 영업소내 사용 share</p>
+		        <div id="mdBudgetShareChart" class="chart-area" style="height: 340px;"></div>
+		        <div id="mdBudgetShareTable" class="table-area">
+		            <p class="table-title">
+		                <span>현재 배정기준</span>
+		                <span class="dsmViewText">(단위: 천 원)</span>
+		            </p>
+		            <table>
+		                <tr>
+		                    <th>배정</th><th>사용</th><th>가용</th><th>사용률</th>
+		                </tr>
+		                <tr>
+		                    <td></td><td></td><td></td><td></td>
+		                </tr>
+		            </table>
+		        </div>
+		    </div>
+		    <div class="inner-box">
+		        <p class="chart-title">자사제품설명회 예산 영업소별 사용 현황</p>
+		        	<div id="jasaBudgetShareTable" class="table-bar-chart">
+		            	<table>
+			                <thead>
+			                    <tr>
+			                        <th></th>
+			                        <th>사용금액</th>
+			                        <th>사용횟수</th>
+			                        <th>영업소별 사용 share</th>
+			                    </tr>
+			                </thead>
+			                <tbody id="jasaBudgetShareTableBody">
+		                    </tbody>
+		                </table>
+		            </div>
+		            <div id="jasaBudgetTable" class="table-area">
+		                <p class="table-title">
+		                    <span>현재 배정기준</span>
+		                    <span class="dsmViewText">(단위: 천 원)</span>
+		                </p>
+		                <table>
+		                    <tr>
+		                        <th>배정</th><th>사용</th><th>가용</th><th>사용률</th>
+		                    </tr>
+		                    <tr>
+		                        <td>154,300</td><td>109,123</td><td>12,123</td><td>12.5%</td>
+		                    </tr>
+		                </table>
+		            </div>
+		        </div>
+		
+		    </div>
+		
+		    <div class="d-title">
+		        <span class="left"><strong>거래처</strong> 방문계획</span>
+		        <span class="right">주간</span>
+		    </div>
+		    <div class="d-box" style="background: white !important; border: 0;">
+		        <div class="inner-box" style="height: 400px;">
+		        </div>
+		    </div>
+		
+		</div>
+</body>

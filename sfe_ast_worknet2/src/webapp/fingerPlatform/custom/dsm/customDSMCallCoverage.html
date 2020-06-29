@@ -1,0 +1,97 @@
+<body>
+	<style>
+	   /* *{box-sizing:border-box;padding:0;margin:0} */
+	   .ast-call-cov{font-family:'Nanum Gothic','나눔고딕',sans-serif !important;width:1200px;margin:0 auto;padding:0 0 30px 0}
+	   .ast-call-cov *{box-sizing:border-box;padding:0;margin:0}
+	   .ast-call-cov table{width:100%;border-collapse:collapse}
+	   .ast-call-cov .d-title{display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:bold;margin-top:30px}
+	   .ast-call-cov .d-title .left{color:#333}
+	   .ast-call-cov .d-title .left strong{color:#048ee5}
+	   .ast-call-cov .d-title .left img{vertical-align:-5px}
+	   .ast-call-cov .d-title .right{color:#666}
+	   .ast-call-cov .d-title .move-link {cursor: pointer;}
+	   .ast-call-cov .d-title+.d-box{margin-top:10px}
+	   .ast-call-cov .d-title .link-txt {font-size:12px;color:#969393;}
+	   .ast-call-cov .d-box{display:flex;background-color:#e9edf2;border:1px solid #dfe5ec;border-radius:3px;padding:15px}
+	   .ast-call-cov .d-box .inner-box{flex:1;padding:18px 0 0 0;background-color:#fff; position: relative;}
+	   .ast-call-cov .d-box .inner-box+.inner-box{margin-left:16px}
+	   .ast-call-cov .d-box .inner-box .sub-title{position:absolute;right:17px;top:22px;font-weight:600;color:blue;}
+	   .ast-call-cov .d-box .chart-title{font-size:16px;line-height:1;color:#048ee5;font-weight:bold;padding-left:16px;margin-left: 16px;border-left:2px solid #048ee5}
+	   .ast-call-cov .d-box .chart-title span{font-size:16px;color:#777;font-weight:bold}
+	   .ast-call-cov .d-box .chart-area{height:370px;padding:0px 5px 0px 5px;}
+	   
+	   .ast-call-cov .d-box .chart-area.area-fit{height:auto}
+	   .ast-call-cov .d-box .chart-area.area-call{height:343px;}
+	   .ast-call-cov .d-box .chart-area.area-sub{width: 295px; height: 390px; float: left;}
+	   .ast-call-cov .d-box .chart-area.area-sub-auto{height: 390px; float: left;}
+	   .ast-call-cov .d-box .table-area{padding:0 25px 15px 25px}
+	   .ast-call-cov .d-box .table-area.area-sub{width: 60px; height: 375px; float: left; margin-left: 8px; padding: 0;}
+	   .ast-call-cov .d-box .table-area .table-title{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#999}
+	   .ast-call-cov .d-box .table-area table{margin-top:7px}
+	   .ast-call-cov .d-box .table-area table th,.ast-call-cov .d-box .table-area table td{height:24px;font-size:13px;color:#333;text-align:center;font-weight:bold;padding: 5px 0;}
+	   .ast-call-cov .d-box .table-area table th{background-color:#f2f2f2}
+	   .ast-call-cov .d-box .table-area .font-focus{color: red;}
+	   .ast-call-cov .d-box .table-area .table-line{border:1px solid #cacece;}
+	   .ast-call-cov .d-box .table-bar-chart{height:340px;padding:20px 18px}
+	   .ast-call-cov .d-box .table-bar-chart thead th{height:24px;font-size:11px;color:#999}
+	   .ast-call-cov .d-box .table-bar-chart tbody tr:nth-child(odd){background-color:#f9f9f9}
+	   .ast-call-cov .d-box .table-bar-chart tbody th{height:34px;font-size:11px;color:#999;background-color:#fff}
+	   .ast-call-cov .d-box .table-bar-chart tbody td{position:relative;border-top:1px solid #ececec;border-bottom:1px solid #ececec;text-align:center;font-size:11px;color:#666;line-height: 18px;}
+	   .ast-call-cov .d-box .table-bar-chart .bar-group{position:absolute;top:0;left:0;right:0;bottom:0}
+	   .ast-call-cov .d-box .table-bar-chart .bar-group .backs{width:100%;height:100%;display:flex}
+	   .ast-call-cov .d-box .table-bar-chart .bar-group .backs span{flex:1;border-left:1px solid #ececec}
+	   .ast-call-cov .d-box .table-bar-chart .bar-group .backs span:nth-child(odd){background-color:rgba(245,245,245,0.5)}
+	   .ast-call-cov .d-box .table-bar-chart .bar-group .backs span:last-child{border-right:1px solid #ececec}
+	   .ast-call-cov .d-box .table-bar-chart .bar-group .bar{position:absolute;top:7px;left:0;height:17px;background-color:#58b0ec;font-size:11px;color:#fff;text-align:center;padding-top:2px}
+	   .ast-call-cov .mt10{margin-top:10px;}
+	   .ast-call-cov .mt15{margin-top:15px;}
+	   .ast-call-cov .mt20{margin-top:20px;}
+	   .ast-call-cov .mt30{margin-top:30px;}
+	   .ast-call-cov .mb10{margin-bottom:10px;}
+	</style>
+	
+	<div class="ast-call-cov">
+		<div class="d-title mt10">
+		    <span class="left">영업소/부서별 <strong>Coverage</strong> <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link call-result"> <label class="link-txt">[고객별Call조회]로 이동</label></span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div class="d-box">
+		    <div class="inner-box">
+		        <p class="chart-title"><label class="coverage-dept">영업소</label> TOTAL Coverage</p>
+		        <div style="height: 390px;">
+		        	<div id="teamTotalCoverage" class="mt15 chart-area area-sub"></div>
+		        </div>
+		    </div>
+		    <div id="teamCoverageBox" class="inner-box">
+		        <p class="chart-title">영업소 평균 Coverage(MR1인 평균)</p>
+		        <div style="height: 390px;">
+		        	<div id="teamAvgCoverage" class="mt15 chart-area area-sub"></div>
+		        </div>
+		    </div>
+		    <div class="inner-box">
+		        <p class="chart-title">부서 평균 Coverage(MR1인 평균)</p>
+		        <div style="height: 390px;">
+		        	<div id="deptAvgCoverage" class="mt15 chart-area area-sub"></div>
+		        </div>
+		    </div>
+		</div>
+		<div class="d-title mt20">
+		    <span class="left"><label class="coverage-emp">담당자별</label> <strong>Coverage</strong> <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link call-result"> <label class="link-txt">[고객별Call조회]로 이동</label></span>
+		    <span class="right">반기누적</span>
+		</div>
+		<div id="mrCallCoverageBox" class="d-box">
+		    <div class="inner-box">
+		    	<div style="height: 390px;">
+		        	<div id="mrAvgCoverage" class="mt15 chart-area area-sub"></div>
+		        </div>
+		    </div>
+		</div>
+		<div class="d-title mt20">
+		    <span class="left"><label class="coverage-dept-tot">영업소</label> Total 진료과 별 <strong>Coverage</strong> <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link call-result"> <label class="link-txt">[고객별Call조회]로 이동</label></span>
+		</div>
+		<div style="width: 500px; height: 506px;"></div>
+		<div class="d-title mt20">
+		    <span class="left">Coverage 상세 <strong>Data</strong> <img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link call-result"></span>
+		</div>
+	</div>
+</body>

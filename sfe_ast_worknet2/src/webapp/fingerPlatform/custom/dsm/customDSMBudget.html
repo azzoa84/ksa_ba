@@ -1,0 +1,429 @@
+<body>
+	<style>
+	   /* *{box-sizing:border-box;padding:0;margin:0} */
+	   .ast-budget{font-family:'Nanum Gothic','나눔고딕',sans-serif !important;width:1200px;margin:0 auto;padding:0 0 30px 0}
+	   .ast-budget *{box-sizing:border-box;padding:0;margin:0}
+	   .ast-budget table{width:100%;border-collapse:collapse}
+	   .ast-budget .d-title{display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:bold;margin-top:30px}
+	   .ast-budget .d-title .left{color:#333}
+	   .ast-budget .d-title .left strong{color:#048ee5}
+	   .ast-budget .d-title .left img{vertical-align:-5px}
+	   .ast-budget .d-title .right{color:#666}
+	   .ast-budget .d-title .move-link {cursor: pointer;}
+	   .ast-budget .d-title .link-txt {font-size:12px;color:#969393;}
+	   .ast-budget .d-title+.d-box{margin-top:10px}
+	   .ast-budget .d-box{display:flex;background-color:#e9edf2;border:1px solid #dfe5ec;border-radius:3px;padding:15px}
+	   .ast-budget .d-box .inner-box{flex:1;padding:18px 0 0 0;background-color:#fff; position: relative;}
+	   .ast-budget .d-box .inner-box+.inner-box{margin-left:16px}
+	   .ast-budget .d-box .inner-box .sub-title{position:absolute;right:17px;top:22px;font-weight:600;color:blue;}
+	   .ast-budget .d-box .main-title{font-size:16px;line-height:1;color:#048ee5;font-weight:bold;padding-left:16px;margin-left: 16px;border-left:2px solid #048ee5}
+	   .ast-budget .d-box .chart-title span{font-size:16px;color:#777;font-weight:bold}
+	   .ast-budget .d-box .chart-area{padding:0px 15px 0px 15px;}
+	   .ast-budget .d-box .chart-area.area-fit{height:auto}
+	   .ast-budget .d-box .chart-area.area-call{height:343px;}
+	   .ast-budget .d-box .chart-area.area-sub{width: 295px; height: 390px; float: left;}
+	   .ast-budget .d-box .chart-area.area-sub-auto{height: 390px; float: left;}
+	   .ast-budget .d-box .bottom-box .top-box{height:25px;margin-left:12px;}
+	   .ast-budget .d-box .bottom-box .chart-box{height:300px;margin:5px 0 15px 0;}
+	   .ast-budget .d-box .bottom-box .fa-angle-right {color:#048ee5;padding: 0 15px 0 0;}
+	   .ast-budget .d-box .bottom-box .title {font-size:13px;color:#048ee5;font-weight:bold;}
+	   .ast-budget .d-box .table-area{padding:0 15px 7px 15px;}
+	   .ast-budget .d-box .table-area.area-sub{width: 60px; height: 375px; float: left; margin-left: 8px; padding: 0;}
+	   .ast-budget .d-box .table-area .table-title{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#999}
+	   .ast-budget .d-box .table-area table{margin-top:7px}
+	   .ast-budget .d-box .table-area table tr:not(:last-child) {border-bottom:1px solid #e4e4e4;}
+	   .ast-budget .d-box .table-area table th,.ast-budget .d-box .table-area table td{height:32px;font-size:16px;color:#333;text-align:center;font-weight:bold;padding: 5px 0;}
+	   .ast-budget .d-box .table-area table th{font-size:13px;}
+	   .ast-budget .d-box .table-area table th{background-color:#f2f2f2}
+	   .ast-budget .d-box .table-area .font-focus{color: red;}
+	   .ast-budget .d-box .table-area .table-line{border:1px solid #cacece;}
+	   .ast-budget .d-box .table-bar-chart{height:340px;padding:20px 18px}
+	   .ast-budget .d-box .table-bar-chart thead th{height:24px;font-size:11px;color:#999}
+	   .ast-budget .d-box .table-bar-chart tbody tr:nth-child(odd){background-color:#f9f9f9}
+	   .ast-budget .d-box .table-bar-chart tbody th{height:34px;font-size:11px;color:#999;background-color:#fff}
+	   .ast-budget .d-box .table-bar-chart tbody td{position:relative;border-top:1px solid #ececec;border-bottom:1px solid #ececec;text-align:center;font-size:11px;color:#666;line-height: 18px;}
+	   .ast-budget .d-box .table-bar-chart .bar-group{position:absolute;top:0;left:0;right:0;bottom:0}
+	   .ast-budget .d-box .table-bar-chart .bar-group .backs{width:100%;height:100%;display:flex}
+	   .ast-budget .d-box .table-bar-chart .bar-group .backs span{flex:1;border-left:1px solid #ececec}
+	   .ast-budget .d-box .table-bar-chart .bar-group .backs span:nth-child(odd){background-color:rgba(245,245,245,0.5)}
+	   .ast-budget .d-box .table-bar-chart .bar-group .backs span:last-child{border-right:1px solid #ececec}
+	   .ast-budget .d-box .table-bar-chart .bar-group .bar{position:absolute;top:7px;left:0;height:17px;background-color:#58b0ec;font-size:11px;color:#fff;text-align:center;padding-top:2px}
+	   .ast-budget .mt10{margin-top:10px;}
+	   .ast-budget .mt15{margin-top:15px;}
+	   .ast-budget .mt20{margin-top:20px;}
+	   .ast-budget .mt30{margin-top:30px;}
+	   .ast-budget .mb10{margin-bottom:10px;}
+	</style>
+	<!-- 영업소 조회 탭 -->
+	<div id="budgetTeam" class="ast-budget">
+		<div class="d-title mt10">
+		    <span class="left"><strong>예산 사용</strong> 현황 
+		    	<img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link budget-portal" style="margin-left: 186px;"> <label class="link-txt">[예산 Portal]로 이동</label>
+		    	<img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link budget-list" style="margin-left:443px;"> <label class="link-txt">[예산 사용 조회]로 이동</label>
+		    </span>
+		    <span class="right main-txt-Team">반기 누적</span>
+		</div>
+		<!-- AM 예산 -->
+		<div class="d-box">
+		    <div class="inner-box">
+		        <p class="main-title">AM 예산</p>
+		        <div>
+		        	<div style="height: 75px; margin-top:7px; display: flex;">
+			        	<div class="table-area" style="flex: 1;">
+				            <table>
+				            	<colgroup>
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+								</colgroup>
+				                <tr>
+				                    <th>현재 배정</th>
+				                    <th>사용 금액</th>
+				                    <th>사용률</th>
+				                    <th>사용 횟수</th>
+				                    <th>가용잔액</th>
+				                </tr>
+				                <tbody id="amBudgetBasicInfoTeam"></tbody>
+				            </table>
+				        </div>
+				        <div class="table-area" style="flex:inherit; width: 550px;">
+				            <table>
+				            	<colgroup>
+									<col style="width:33%;">
+									<col style="width:33%;">
+									<col style="width:33%;">
+								</colgroup>
+				                <tr>
+				                    <th>부서평균 사용률</th>
+				                    <th>부서평균 사용 횟수</th>
+				                    <th>권장 진행률</th>
+				                </tr>
+				                <tbody id="amBudgetTotInfoTeam"></tbody>
+				            </table>
+				        </div>
+			        </div>
+			        <div class="bottom-box" style="margin-top: 20px;">
+			        	<div class="chart-area">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">계획 대비 사용 현황</span></div>
+			        		<div id="amBudgetResultChartTeam" class="chart-box"></div>
+			        	</div>
+			        	<div class="table-area">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">품목 별 사용 현황</span></div>
+			        		<div class="table-area">
+			        			<table>
+			        				<thead id="amBudgetProductHeaderTeam">
+				            		<tr>
+					                    <th style="width:100px;">품목</th>
+					                    <th>MR1</th>
+					                    <th>MR2</th>
+					                    <th>MR3</th>
+					                    <th>MR4</th>
+					                    <th>MR5</th>
+					                </tr>
+					                </thead>
+					                <tbody id="amBudgetProductBodyTeam"></tbody>
+					            </table>
+			        		</div>
+			        	</div>
+			        </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- 정책지원 예산 -->
+		<div class="d-box mt20">
+		    <div class="inner-box">
+		        <p class="main-title">정책지원 예산</p>
+		        <div>
+		        	<div style="height: 75px; margin-top:7px; display: flex;">
+			        	<div class="table-area" style="flex: 1;">
+				            <table>
+				            	<colgroup>
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+								</colgroup>
+				                <tr>
+				                    <th>현재 배정</th>
+				                    <th>사용 금액</th>
+				                    <th>사용률</th>
+				                    <th>사용 횟수</th>
+				                    <th>가용잔액</th>
+				                </tr>
+				                <tbody id="mdBudgetBasicInfoTeam"></tbody>
+				            </table>
+				        </div>
+				        <div class="table-area" style="flex:inherit; width: 550px;">
+				            <table>
+				            	<colgroup>
+									<col style="width:33%;">
+									<col style="width:33%;">
+									<col style="width:33%;">
+								</colgroup>
+				                <tr>
+				                    <th>부서평균 사용률</th>
+				                    <th>부서평균 사용 횟수</th>
+				                    <th>권장 진행률</th>
+				                </tr>
+				                <tbody id="mdBudgetTotInfoTeam"></tbody>
+				            </table>
+				        </div>
+			        </div>
+			        <div class="bottom-box" style="display: flex; margin-top: 20px;">
+			        	<div class="chart-area" style="flex: 1;">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">영업소 내 사용 현황</span></div>
+			        		<div id="mdBudgetResultChartTeam" class="chart-box"></div>
+			        	</div>
+			        	<div class="chart-area" style="flex:inherit; width: 700px;">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">품목 별 사용 집중도</span></div>
+			        		<div id="mdBudgetProductChartTeam" class="chart-box"></div>
+			        	</div>
+			        </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- 자사제품설명회 예산 -->
+		<div class="d-box mt20">
+		    <div class="inner-box">
+		        <p class="main-title">자사제품설명회 예산</p>
+		        <div>
+		        	<div style="height: 75px; margin-top:7px; display: flex;">
+			        	<div class="table-area" style="flex: 1;">
+				            <table>
+				            	<colgroup>
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+								</colgroup>
+				                <tr>
+				                    <th>현재 공유 금액</th>
+				                    <th>사용 금액</th>
+				                    <th>사용률</th>
+				                    <th>사용 횟수</th>
+				                    <th>가용잔액</th>
+				                </tr>
+				                <tbody id="jasaBudgetBasicInfoTeam"></tbody>
+				            </table>
+				        </div>
+				        <div class="table-area" style="flex:inherit; width: 550px;">
+				            <table>
+				            	<colgroup>
+									<col style="width:33%;">
+									<col style="width:33%;">
+									<col style="width:33%;">
+								</colgroup>
+				                <tr>
+				                    <th>부서평균 사용률</th>
+				                    <th>부서평균 사용 횟수</th>
+				                    <th>권장 진행률</th>
+				                </tr>
+				                <tbody id="jasaBudgetTotInfoTeam"></tbody>
+				            </table>
+				        </div>
+			        </div>
+			        <div class="bottom-box" style="display: flex; margin-top: 20px;">
+			        	<div class="chart-area" style="flex: 1;">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">영업소 내 사용 현황</span></div>
+			        		<div id="jasaBudgetResultChartTeam" class="chart-box"></div>
+			        	</div>
+			        	<div class="chart-area" style="flex:inherit; width: 700px;">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">품목 별 사용 집중도</span></div>
+			        		<div id="jasaBudgetProductChartTeam" class="chart-box"></div>
+			        	</div>
+			        </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<!-- 부서 조회 탭 -->
+	<div id="budgetDept" class="ast-budget" style="display: none;">
+		<div class="d-title mt10">
+		    <span class="left"><strong>예산 사용</strong> 현황 
+		    	<img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link budget-portal" style="margin-left: 186px;"> <label class="link-txt">[예산 Portal]로 이동</label>
+		    	<img src="./fingerPlatform/images/dsm/title-icon.png" class="move-link budget-list" style="margin-left:443px;"> <label class="link-txt">[예산 사용 조회]로 이동</label>
+		    </span>
+		    <span class="right main-txt-Dept">반기 누적</span>
+		</div>
+		<!-- AM 예산 -->
+		<div class="d-box">
+		    <div class="inner-box">
+		        <p class="main-title">AM 예산</p>
+		        <div>
+		        	<div style="height: 75px; margin-top:7px; display: flex;">
+			        	<div class="table-area" style="flex: 1;">
+				            <table>
+				            	<colgroup>
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+								</colgroup>
+				                <tr>
+				                    <th>현재 배정</th>
+				                    <th>사용 금액</th>
+				                    <th>사용률</th>
+				                    <th>사용 횟수</th>
+				                    <th>가용잔액</th>
+				                </tr>
+				                <tbody id="amBudgetBasicInfoDept"></tbody>
+				            </table>
+				        </div>
+				        <div class="table-area" style="flex:inherit; width: 550px;">
+				            <table>
+				            	<colgroup>
+									<col style="width:33%;">
+									<col style="width:33%;">
+									<col style="width:33%;">
+								</colgroup>
+				                <tr>
+				                    <th>부서평균 사용률</th>
+				                    <th>부서평균 사용 횟수</th>
+				                    <th>권장 진행률</th>
+				                </tr>
+				                <tbody id="amBudgetTotInfoDept"></tbody>
+				            </table>
+				        </div>
+			        </div>
+			        <div class="bottom-box" style="margin-top: 20px;">
+			        	<div class="chart-area" style="flex: 1;">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">계획 대비 사용 현황</span></div>
+			        		<div id="amBudgetResultChartDept" class="chart-box"></div>
+			        	</div>
+			        	<div class="table-area">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">품목 별 사용 현황</span></div>
+			        		<div class="table-area">
+			        			<table>
+			        				<thead id="amBudgetProductHeaderDept">
+				            		<tr>
+					                    <th style="width:100px;">품목</th>
+					                    <th>영업소1</th>
+					                    <th>영업소2</th>
+					                    <th>영업소3</th>
+					                    <th>영업소4</th>
+					                    <th>영업소5</th>
+					                </tr>
+					                </thead>
+					                <tbody id="amBudgetProductBodyDept"></tbody>
+					            </table>
+			        		</div>
+			        	</div>
+			        </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- 정책지원 예산 -->
+		<div class="d-box mt20">
+		    <div class="inner-box">
+		        <p class="main-title">정책지원 예산</p>
+		        <div>
+		        	<div style="height: 75px; margin-top:7px; display: flex;">
+			        	<div class="table-area" style="flex: 1;">
+				            <table>
+				            	<colgroup>
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+								</colgroup>
+				                <tr>
+				                    <th>현재 배정</th>
+				                    <th>사용 금액</th>
+				                    <th>사용률</th>
+				                    <th>사용 횟수</th>
+				                    <th>가용잔액</th>
+				                </tr>
+				                <tbody id="mdBudgetBasicInfoDept"></tbody>
+				            </table>
+				        </div>
+				        <div class="table-area" style="flex:inherit; width: 550px;">
+				            <table>
+				            	<colgroup>
+									<col style="width:33%;">
+									<col style="width:33%;">
+									<col style="width:33%;">
+								</colgroup>
+				                <tr>
+				                    <th>부서평균 사용률</th>
+				                    <th>부서평균 사용 횟수</th>
+				                    <th>권장 진행률</th>
+				                </tr>
+				                <tbody id="mdBudgetTotInfoDept"></tbody>
+				            </table>
+				        </div>
+			        </div>
+			        <div class="bottom-box" style="display: flex; margin-top: 20px;">
+			        	<div class="chart-area" style="flex: 1;">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">계획 대비 사용 현황</span></div>
+			        		<div id="mdBudgetResultChartDept" class="chart-box"></div>
+			        	</div>
+			        	<div class="chart-area" style="flex:inherit; width: 700px;">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">품목 별 사용 집중도</span></div>
+			        		<div id="mdBudgetProductChartDept" class="chart-box"></div>
+			        	</div>
+			        </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- 자사제품설명회 예산 -->
+		<div class="d-box mt20">
+		    <div class="inner-box">
+		        <p class="main-title">자사제품설명회 예산</p>
+		        <div>
+		        	<div style="height: 75px; margin-top:7px; display: flex;">
+			        	<div class="table-area" style="flex: 1;">
+				            <table>
+				            	<colgroup>
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+									<col style="width:20%;">
+								</colgroup>
+				                <tr>
+				                    <th>현재 공유 금액</th>
+				                    <th>사용 금액</th>
+				                    <th>사용률</th>
+				                    <th>사용 횟수</th>
+				                    <th>가용잔액</th>
+				                </tr>
+				                <tbody id="jasaBudgetBasicInfoDept"></tbody>
+				            </table>
+				        </div>
+				        <div class="table-area" style="flex:inherit; width: 550px;">
+				            <table>
+				            	<colgroup>
+									<col style="width:33%;">
+									<col style="width:33%;">
+									<col style="width:33%;">
+								</colgroup>
+				                <tr>
+				                    <th>부서평균 사용률</th>
+				                    <th>부서평균 사용 횟수</th>
+				                    <th>권장 진행률</th>
+				                </tr>
+				                <tbody id="jasaBudgetTotInfoDept"></tbody>
+				            </table>
+				        </div>
+			        </div>
+			        <div class="bottom-box" style="display: flex; margin-top: 20px;">
+			        	<div class="chart-area" style="flex: 1;">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">영업소 별 사용 현황</span></div>
+			        		<div id="jasaBudgetResultChartDept" class="chart-box"></div>
+			        	</div>
+			        	<div class="chart-area" style="flex:inherit; width: 700px;">
+			        		<div class="top-box"><i class="fas fa-angle-right"></i><span class="title">품목 별 사용 집중도</span></div>
+			        		<div id="jasaBudgetProductChartDept" class="chart-box"></div>
+			        	</div>
+			        </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</body>

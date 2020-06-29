@@ -1,0 +1,106 @@
+<body>
+	<style>
+	   /* *{box-sizing:border-box;padding:0;margin:0} */
+	   .ast-ddd{font-family:'Nanum Gothic','나눔고딕',sans-serif !important;width:1200px;margin:0 auto;padding:0 0 0 0}
+	   .ast-ddd *{box-sizing:border-box;padding:0;margin:0}
+	   .ast-ddd table{width:100%;border-collapse:collapse}
+	   .ast-ddd .d-title{display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:bold;margin-top:30px}
+	   .ast-ddd .d-title .left{color:#333}
+	   .ast-ddd .d-title .left strong{color:#048ee5}
+	   .ast-ddd .d-title .left img{vertical-align:-5px}
+	   .ast-ddd .d-title .right{color:#666}
+	   .ast-ddd .d-title .move-link {cursor: pointer;}
+	   .ast-ddd .d-title+.d-box{margin-top:10px}
+	   .ast-ddd .d-title .link-txt {font-size:12px;color:#969393;}
+	   .ast-ddd .d-box{display:flex;background-color:#e9edf2;border:1px solid #dfe5ec;border-radius:3px;padding:15px}
+	   .ast-ddd .d-box .inner-box{flex:1;padding:18px 0 0 0;background-color:#fff; position: relative;}
+	   .ast-ddd .d-box .inner-box .ddd-date {position:absolute;right:10px;font-size:12px;top:20px;color:#999;}
+	   .ast-ddd .d-box .inner-box+.inner-box{margin-left:16px}
+	   .ast-ddd .d-box .inner-box .sub-title{position:absolute;right:17px;top:22px;font-weight:600;color:blue;}
+	   .ast-ddd .d-box .chart-title{font-size:16px;line-height:1;color:#048ee5;font-weight:bold;padding-left:16px;margin-left: 16px;border-left:2px solid #048ee5}
+	   .ast-ddd .d-box .chart-title span{font-size:16px;color:#777;font-weight:bold}
+	   .ast-ddd .d-box .chart-area{height:370px;padding:0px 5px 0px 5px;}
+	   
+	   .ast-ddd .d-box .chart-area.area-fit{height:auto}
+	   .ast-ddd .d-box .chart-area.area-call{height:343px;}
+	   .ast-ddd .d-box .chart-area.area-sub{width: 295px; height: 390px; float: left;}
+	   .ast-ddd .d-box .chart-area.area-sub-auto{height: 390px; float: left;}
+	   .ast-ddd .d-box .table-area{padding:0 25px 15px 25px}
+	   .ast-ddd .d-box .table-area.area-sub{width: 60px; height: 375px; float: left; margin-left: 8px; padding: 0;}
+	   .ast-ddd .d-box .table-area .table-title{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#999}
+	   .ast-ddd .d-box .table-area table{margin-top:7px}
+	   .ast-ddd .d-box .table-area table th,.ast-ddd .d-box .table-area table td{height:24px;font-size:13px;color:#333;text-align:center;font-weight:bold;padding: 5px 0;}
+	   .ast-ddd .d-box .table-area table th{background-color:#f2f2f2}
+	   .ast-ddd .d-box .table-area .font-focus{color: red;}
+	   .ast-ddd .d-box .table-area .table-line{border:1px solid #cacece;}
+	   .ast-ddd .d-box .table-bar-chart{height:340px;padding:20px 18px}
+	   .ast-ddd .d-box .table-bar-chart thead th{height:24px;font-size:11px;color:#999}
+	   .ast-ddd .d-box .table-bar-chart tbody tr:nth-child(odd){background-color:#f9f9f9}
+	   .ast-ddd .d-box .table-bar-chart tbody th{height:34px;font-size:11px;color:#999;background-color:#fff}
+	   .ast-ddd .d-box .table-bar-chart tbody td{position:relative;border-top:1px solid #ececec;border-bottom:1px solid #ececec;text-align:center;font-size:11px;color:#666;line-height: 18px;}
+	   .ast-ddd .d-box .table-bar-chart .bar-group{position:absolute;top:0;left:0;right:0;bottom:0}
+	   .ast-ddd .d-box .table-bar-chart .bar-group .backs{width:100%;height:100%;display:flex}
+	   .ast-ddd .d-box .table-bar-chart .bar-group .backs span{flex:1;border-left:1px solid #ececec}
+	   .ast-ddd .d-box .table-bar-chart .bar-group .backs span:nth-child(odd){background-color:rgba(245,245,245,0.5)}
+	   .ast-ddd .d-box .table-bar-chart .bar-group .backs span:last-child{border-right:1px solid #ececec}
+	   .ast-ddd .d-box .table-bar-chart .bar-group .bar{position:absolute;top:7px;left:0;height:17px;background-color:#58b0ec;font-size:11px;color:#fff;text-align:center;padding-top:2px}
+	   .ast-ddd .mt10{margin-top:10px;}
+	   .ast-ddd .mt15{margin-top:15px;}
+	   .ast-ddd .mt20{margin-top:20px;}
+	   .ast-ddd .mt30{margin-top:30px;}
+	   .ast-ddd .mb10{margin-bottom:10px;}
+	</style>
+	
+	<div class="ast-ddd">
+		<div class="d-title mt10">
+		    <span class="left"><strong>DDD</strong> 현황</span>
+		    <span class="right"></span>
+		</div>
+		<!-- 영업부, 영업소, MR별 DDD Share 현황 -->
+		<div class="d-box">
+		    <div id="deptDDDBox" class="inner-box">
+		    	<div class="ddd-date"></div>
+		        <p class="chart-title">영업부 평균 DDD Share</p>
+		        <div style="height: 390px;">
+		        	<div id="deptDDDShareChart" class="mt15 chart-area area-sub"></div>
+		        </div>
+		    </div>
+		    <div id="teamDDDBox" class="inner-box">
+		    	<div class="ddd-date"></div>
+		        <p class="chart-title">영업소 평균 DDD Share</p>
+		        <div style="height: 390px;">
+		        	<div id="teamDDDShareChart" class="mt15 chart-area area-sub"></div>
+		        </div>
+		    </div>
+		    <!-- <div id="mrDDDBox" class="inner-box">
+		    	<div class="ddd-date"></div>
+		        <p class="chart-title"><label class="mr-ddd">MR</label>별 DDD Share</p>
+		        <div style="height: 390px;">
+		        	<div id="mrDDDShareChart" class="mt15 chart-area"></div>
+		        </div>
+		    </div> -->
+		</div>
+		<div class="d-box mt20">
+		    <div id="mrDDDBox" class="inner-box">
+		    	<div class="ddd-date"></div>
+		        <p class="chart-title"><label class="mr-ddd">MR</label>별 DDD Share</p>
+		        <div style="height: 490px;">
+		        	<div id="mrDDDShareChart" class="mt15 chart-area"></div>
+		        </div>
+		    </div>
+		</div>
+		<!-- 최근 1년 제품 별 DDD Share 추이 -->
+		<div class="d-box mt20">
+		    <div class="inner-box">
+		        <p class="chart-title">최근 1년 제품 별 DDD Share 추이</p>
+		        <div style="height: 480px;">
+		        	<div id="mrDDDFYChart" class="mt15 chart-area"></div>
+		        </div>
+		    </div>
+		</div>
+		<!-- DDD 상세 Data -->
+		<div class="d-title mt20">
+		    <span class="left"><strong>DDD 상세</strong> Data</span>
+		</div>
+	</div>
+</body>

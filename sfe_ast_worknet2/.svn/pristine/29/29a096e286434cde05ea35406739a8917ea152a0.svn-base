@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/* jqxWindow 관련 */
+.jqx-tree { border: none; }
+
+/* Modal */
+.jqx-window-modal { opacity:0.7 !important;}
+
+/* 그리드 */
+.jqx-grid { border: none; border-radius:0; }
+.jqx-grid-header { font-size: 13px; font-weight:bold; color:#54545e; background: #fff; }
+.jqx-grid-column-header { background: #fff; }
+.jqx-grid-column-header >div >div { font-weight:bold; }
+.jqx-grid .popUpColumn { background-color: #fdf6f5; cursor:pointer; } /* 컬럼이 팝업오픈 컬럼으로 설정되었을 때 background-color 변경 (2016.09.02 이준혁) */
+
+.jqx-widget .jqx-grid-cell,
+.jqx-widget .jqx-grid-column-header { border-color: #ddd; }
+.jqx-grid .jqx-fill-state-pressed { background: #f8f3e4; }
+.jqx-widget-content { font-family:'Nanum Gothic',tahoma,AppleGothic,Sans-serif; font-size: 12px; }
+
+/* 탭 */
+.jqx-tabs-title-selected-top-light, .jqx-tabs-selection-tracker-top-light {
+    border-color: #ddd;
+    border-bottom: 1px solid #fff;
+    filter: none;
+    background: #fff;
+    color: #333 !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.jqx-tabs-title-selected-bottom-light, .jqx-tabs-selection-tracker-bottom-light {
+    border-color: #ddd;
+    border-top: 1px solid #fff;
+    filter: none;
+    background: #fff;
+   -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.jqx-tabs-title-hover-top-light, .jqx-tabs-title-hover-bottom-light, .jqx-tabs-header-light
+{
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.jqx-tabs-header { background: #fff; !important; }

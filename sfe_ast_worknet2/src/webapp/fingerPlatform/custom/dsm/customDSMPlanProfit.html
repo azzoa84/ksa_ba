@@ -1,0 +1,234 @@
+<body>
+	<style>
+	   /* *{box-sizing:border-box;padding:0;margin:0} */
+	   .ast-profit{font-family:'Nanum Gothic','나눔고딕',sans-serif !important;width:1200px;margin:0 auto;padding:0 0 30px 0}
+	   .ast-profit *{box-sizing:border-box;padding:0;margin:0}
+	   .ast-profit .highcharts-container {z-index: 90 !important;}
+	   .ast-profit .highcharts-tooltip span .tooltip{z-index: 9998 !important;}
+	   .ast-profit table{width:100%;border-collapse:collapse}
+	   .ast-profit .d-title{display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:bold;margin-top:30px}
+	   .ast-profit .d-title .left{color:#333}
+	   .ast-profit .d-title .left strong{color:#048ee5}
+	   .ast-profit .d-title .left img{vertical-align:-5px}
+	   .ast-profit .d-title .right{color:#666}
+	   .ast-profit .d-title .move-link {cursor: pointer;}
+	   .ast-profit .d-title+.d-box{margin-top:10px}
+	   .ast-profit .d-box{display:flex;background-color:#e9edf2;border:1px solid #dfe5ec;border-radius:3px;padding:15px}
+	   .ast-profit .d-box .inner-box{flex:1;padding:18px 0 0 0;background-color:#fff}
+	   .ast-profit .d-box .inner-box.fixed-box{position:relative;}
+	   .ast-profit .d-box .inner-box+.inner-box{margin-left:16px}
+	   
+	   .ast-profit .d-box .inner-box .info-table {position:absolute;height:33px;top:62px;left:68px;display:flex;z-index:99;font-size:11px;}
+	   .ast-profit .d-box .inner-box .info-table table {width:52px;text-align:center;line-height:14px;border-radius:6px;margin-right:2px;}
+	   .ast-profit .d-box .inner-box .info-table table.left-tbl {float:right;margin-right:2px; background:#DEEBF7;}
+	   .ast-profit .d-box .inner-box .info-table table.right-tbl {float:left;margin-left:2px; background:#FFCCCC;}
+	   
+	   .ast-profit .d-box .inner-box .info-table table td {padding:2px;color:#000;font-weight:bold;}
+	   	   
+	   .ast-profit .d-box .chart-title{font-size:16px;line-height:1;color:#048ee5;font-weight:bold;padding-left:16px;margin-left: 16px;border-left:2px solid #048ee5}
+	   .ast-profit .d-box .chart-title span{font-size:16px;color:#777;font-weight:bold}
+	   .ast-profit .d-box .chart-area{height:370px;padding:0px 5px 0px 5px;}	   
+	   .ast-profit .d-box .chart-area.area-fit{height:auto}
+	   .ast-profit .d-box .chart-area.area-call{height:343px;}
+	   .ast-profit .d-box .table-area{padding:0 25px 15px 25px}
+	   .ast-profit .d-box .table-area .table-title{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#999}
+	   .ast-profit .d-box .table-area table{margin-top:7px}
+	   .ast-profit .d-box .table-area table th,.ast-profit .d-box .table-area table td{height:24px;font-size:13px;color:#333;text-align:center;font-weight:bold;padding: 5px 0;}
+	   .ast-profit .d-box .table-area table th{background-color:#f2f2f2}
+	   .ast-profit .d-box .table-area .font-focus{color: red;}
+	   .ast-profit .d-box .table-bar-chart{height:340px;padding:20px 18px}
+	   .ast-profit .d-box .table-bar-chart thead th{height:24px;font-size:11px;color:#999}
+	   .ast-profit .d-box .table-bar-chart tbody tr:nth-child(odd){background-color:#f9f9f9}
+	   .ast-profit .d-box .table-bar-chart tbody th{height:34px;font-size:11px;color:#999;background-color:#fff}
+	   .ast-profit .d-box .table-bar-chart tbody td{position:relative;border-top:1px solid #ececec;border-bottom:1px solid #ececec;text-align:center;font-size:11px;color:#666;line-height: 18px;}
+	   .ast-profit .d-box .table-bar-chart .bar-group{position:absolute;top:0;left:0;right:0;bottom:0}
+	   .ast-profit .d-box .table-bar-chart .bar-group .backs{width:100%;height:100%;display:flex}
+	   .ast-profit .d-box .table-bar-chart .bar-group .backs span{flex:1;border-left:1px solid #ececec}
+	   .ast-profit .d-box .table-bar-chart .bar-group .backs span:nth-child(odd){background-color:rgba(245,245,245,0.5)}
+	   .ast-profit .d-box .table-bar-chart .bar-group .backs span:last-child{border-right:1px solid #ececec}
+	   .ast-profit .d-box .table-bar-chart .bar-group .bar{position:absolute;top:7px;left:0;height:17px;background-color:#58b0ec;font-size:11px;color:#fff;text-align:center;padding-top:2px}
+	   .ast-profit .mt10{margin-top:10px;}
+	   .ast-profit .mt20{margin-top:20px;}
+	   .ast-profit .mt30{margin-top:30px;}
+	</style>
+	
+	<div class="ast-profit">
+		<div class="d-title" style="margin-top: 10px;">
+		    <span class="left"><strong>목표 / 실적</strong> 현황</span>
+		</div>
+		<div class="d-box">
+		    <div class="inner-box fixed-box">
+		        <p class="chart-title">당월</p>
+		        <div id="profitNowTableInfo" class="info-table"></div>
+		        <div id="profitNowChart" class="chart-area"></div>
+		        <div id="" class="table-area">
+		            <p class="table-title mt10">
+		                <span></span>
+		                <span class="dsmViewText">(단위: 천 원)</span>
+		            </p>		            
+		            <table id="profitNowTable">
+		                <tr>
+		                    <th></th><th>영업소 평균</th><th>영업부 평균</th>
+		                </tr> 
+		                <tbody>
+			                <tr>
+			                    <td>GAP<br>(100%달성)</td><td></td><td></td>
+		                    </tr>
+		                    <tr>
+			                    <td>전년 동기 대비<br>증감 실적</td><td></td><td></td>
+							</tr>
+						</tbody>
+		            </table>
+		        </div>
+			</div>
+		</div>
+		<div class="d-box mt20">
+			<div class="inner-box fixed-box">
+		        <p class="chart-title">반기누적</p>
+		        <div id="profitAccureTableInfo" class="info-table"></div>
+		        <div id="profitAccureChart" class="chart-area"></div>
+		        <div id="" class="table-area">
+		            <p class="table-title mt10">
+		                <span></span>
+		                <span class="dsmViewText">(단위: 천 원)</span>
+		            </p>
+		            <table id="profitAccureTable">
+		                <tr>
+		                    <th></th><th>영업소 평균</th><th>영업부 평균</th>
+		                </tr> 
+		                <tbody>
+			                <tr>
+			                    <td>GAP<br>(100%달성)</td><td></td><td></td>
+		                    </tr>
+		                    <tr>
+			                    <td>전년 동기 대비<br>증감 실적</td><td></td><td></td>
+							</tr>
+						</tbody>
+		            </table>
+		        </div>
+			</div>
+		</div>
+		<div class="d-box mt20">
+			<div class="inner-box fixed-box">
+		        <p class="chart-title">반기</p>
+		        <div id="profitHalfTableInfo" class="info-table"></div>
+		        <div id="profitHalfChart" class="chart-area"></div>
+		        <div id="" class="table-area">
+		            <p class="table-title mt10">
+		                <span></span>
+		                <span class="dsmViewText">(단위: 천 원)</span>
+		            </p>
+		            <table id="profitHalfTable">
+		                <tr>
+		                    <th></th><th>영업소 평균</th><th>영업부 평균</th>
+		                </tr> 
+		                <tbody>
+			                <tr>
+			                    <td>GAP<br>(100%달성)</td><td></td><td></td>
+		                    </tr>
+		                    <tr>
+			                    <td>전년 동기 대비<br>증감 실적</td><td></td><td></td>
+							</tr>
+						</tbody>
+		            </table>
+		        </div>
+			</div>
+		</div>
+		<div class="d-title mt30">
+		    <span class="left"><strong>최근 1년</strong> 실적 추이</span>
+		</div>
+		<div class="d-box mt10">
+		    <div class="inner-box">
+		        <div id="profitBfYearProgress" class="chart-area" style="height:476px; padding: 0;"></div>
+		    </div>
+		</div>
+		<div class="d-title mt30">
+		    <span class="left"><strong>최근 6개월</strong> 소화실적 추이</span>
+		</div>
+	</div>
+</body>
+<!-- <body>
+	<style>
+		.profit-css-wrap .plan-profit { height: 2350px; }
+		.profit-css-wrap .main-title { height: 45px; background: #FEF5F5; line-height: 44px; border-width: 2px 1px 1px; border-style: solid; border-color: rgb(218, 30, 72) rgb(229, 229, 229) rgb(217, 217, 217);  }
+		.profit-css-wrap .main-title span { margin-left: 10px; font-size: 15px; float: left; }
+		.profit-css-wrap .sub-title { height: 35px; border: 1px solid; line-height: 35px; }
+		.profit-css-wrap .sub-title span { margin-left: 10px; font-size: 13px; float: left; }
+		.profit-css-wrap .plan-profit .profit-detail {  }
+		.profit-css-wrap .plan-profit .profit-detail .p-top-box { position: relative; }
+		.profit-css-wrap .plan-profit .profit-detail .p-top-box .p-name { position: absolute; width: 50px; background: #f9cea2; text-align: center; }
+		.profit-css-wrap .plan-profit .profit-detail .p-top-box .p-name span {margin-top: 106px; display: block; font-size: 21px; font-weight: 600;} 
+		.profit-css-wrap .plan-profit .profit-detail .p-top-box .p-chart { position: absolute;  left: 60px; border: 1px solid; }
+		.profit-css-wrap .plan-profit .profit-detail .p-bottom-box { height: 130px; }
+		.profit-css-wrap .plan-profit .profit-detail .p-single-box { height: 130px; }
+		.profit-css-wrap .plan-profit .bf-detail { border: 1px solid; height: 490px; }
+		
+		.profit-css-wrap .mt5 { margin-top: 5px; }
+		.profit-css-wrap .mt10 { margin-top: 10px; }
+		.profit-css-wrap .mt20 { margin-top: 20px; }
+		.profit-css-wrap .mt30 { margin-top: 30px; }
+		.profit-css-wrap .mt40 { margin-top: 40px; }
+		
+		.profit-css-wrap .chart-type1-wd { width: 1136px; }
+		.profit-css-wrap .chart-type2-wd { width: 1198px; }
+		
+		.profit-css-wrap .detail-h { height: 490px; }
+		.profit-css-wrap .detail-box-h { height: 350px; }
+		
+	</style>
+
+	<div class="profit-css-wrap">
+		<div class="plan-profit">
+			<div class="main-title">
+				<span>목표 / 실적</span>
+			</div>
+			<div class="sub-title mt10">
+				<span><i class="fas fa-square"></i>&nbsp;&nbsp;목표 / 실적 / 달성률 / 성장률 현황</span>
+			</div>
+			당월
+			<div class="profit-detail detail-h mt10">
+				<div class="p-top-box detail-box-h">
+					<div class="p-name detail-box-h">
+						<span>당<br><br>월</span>
+					</div>
+					<div class="p-chart chart-type1-wd detail-box-h" id="profitNowChart"></div>
+				</div>
+				<div class="p-bottom-box mt10"></div>
+			</div>
+			반기누적
+			<div class="profit-detail detail-h mt40">
+				<div class="p-top-box detail-box-h">
+					<div class="p-name detail-box-h">
+						<span>반<br>기<br>누<br>적</span>
+					</div>
+					<div class="p-chart chart-type1-wd detail-box-h" id="profitAccureChart"></div>
+				</div>
+				<div class="p-bottom-box mt10"></div>
+			</div>
+			반기
+			<div class="profit-detail detail-h mt40">
+				<div class="p-top-box detail-box-h">
+					<div class="p-name detail-box-h">
+						<span>반<br><br>기</span>
+					</div>
+					<div class="p-chart chart-type1-wd detail-box-h" id="profitHalfChart"></div>
+				</div>
+				<div class="p-bottom-box mt10"></div>
+			</div>
+			최근 1년 실적 추이
+			<div class="sub-title mt30">
+				<span><i class="fas fa-square"></i>&nbsp;&nbsp;최근 1년 실적 추이</span>
+			</div>
+			<div class="bf-detail mt10">
+				<div class="chart-type2-wd detail-box-h" id="profitBfYearProgress"></div>
+			</div>
+			상세 Data (최근 6개월 소화실적 추이)
+			<div class="main-title mt30">
+				<span>상세 Data</span>
+			</div>
+			<div class="sub-title mt10">
+				<span><i class="fas fa-square"></i>&nbsp;&nbsp;최근 6개월 소화실적 추이</span>
+			</div>
+		</div>
+	</div>
+</body> -->
